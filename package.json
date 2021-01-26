@@ -1,0 +1,63 @@
+{
+	"name": "@engloba-tech/englobity",
+	"version": "0.0.1",
+	"description": "Custom components for engloba web apps",
+	"main": "index.js",
+	"types": "index.d.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint \"./src/**/*.{js,jsx}\""
+	},
+	"author": "",
+	"dependencies": {
+		"@material-ui/core": "^4.11.0",
+		"@material-ui/lab": "^4.0.0-alpha.56",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest",
+			"plugin:react/recommended"
+		],
+		"plugins": [
+			"react-hooks"
+		],
+		"globals": {
+			"fixture": true,
+			"location": true
+		},
+		"rules": {
+			"react-hooks/rules-of-hooks": "error",
+			"react-hooks/exhaustive-deps": "warn",
+			"no-throw-literal": "off",
+			"react/jsx-fragments": "error",
+			"react/prop-types": 1,
+			"no-console": "warn",
+			"no-debugger": "warn",
+			"no-use-before-define": 2,
+			"spaced-comment": "warn",
+			"quotes": [
+				"error",
+				"single"
+			],
+			"semi": [
+				"error",
+				"always"
+			]
+		}
+	},
+	"devDependencies": {
+		"@craco/craco": "^5.7.0",
+		"@testing-library/react": "^11.2.2",
+		"@testing-library/react-hooks": "^3.7.0",
+		"@types/jest": "^26.0.15",
+		"@wojtekmaj/enzyme-adapter-react-17": "^0.3.1",
+		"cross-env": "^7.0.2",
+		"enzyme": "^3.11.0",
+		"husky": "^4.3.0",
+		"react-test-renderer": "^17.0.1"
+	},
+	"license": "ISC"
+}
