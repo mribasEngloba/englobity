@@ -4,13 +4,13 @@ import { TextValidator } from 'react-material-ui-form-validator';
 import { InputAdornment } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 
-export function EOInput({
+export function Input({
 	icon,
 	isLoading,
 	className,
 	value,
 	InputProps,
-	skeletonHeight,
+	skeletonHeight = 48,
 	skeletonClassName,
 	variant,
 	...props
@@ -30,7 +30,7 @@ export function EOInput({
 	return isLoading ? (
 		<Skeleton
 			className={`${className} ${skeletonClassName}`}
-			height={skeletonHeight || 48}
+			height={skeletonHeight}
 		/>
 	) : (
 		<TextValidator
@@ -44,7 +44,7 @@ export function EOInput({
 	);
 }
 
-EOInput.propTypes = {
+Input.propTypes = {
 	icon: PropTypes.element,
 	value: PropTypes.string,
 	className: PropTypes.string,

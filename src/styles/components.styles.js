@@ -1,48 +1,6 @@
 import { font } from './font.styles';
 
-const defauldButton = {
-	height: '2.4rem',
-	padding: '0rem 1rem',
-	minWidth: '6.25rem',
-	borderRadius: '8px',
-	fontStyle: 'normal',
-	fontWeight: font.weight.seminormal,
-	fontSize: font.size.s,
-};
-
 export const components = {
-	button: (color) => ({
-		primary: {
-			...defauldButton,
-			background: color.primary.main,
-			color: color.secondary.light,
-			'&:hover': {
-				backgroundColor: color.primary.dark,
-				boxShadow: `0px 0px 4px ${color.action.activeButton}`,
-			},
-			'&:disabled': {
-				background: color.basic.brighter,
-				color: color.secondary.light,
-			},
-			textTransform: 'capitalize',
-		},
-		secondary: {
-			...defauldButton,
-			border: `1.25px solid ${color.primary.main}`,
-			background: color.secondary.main,
-			color: color.primary.main,
-			'&:hover': {
-				border: `1.25px solid ${color.primary.dark}`,
-				boxShadow: `0px 0px 4px ${color.action.activeButton}`,
-				color: color.primary.dark,
-			},
-			'&:disabled': {
-				border: `1.25px solid ${color.basic.brighter}`,
-				color: color.basic.brighter,
-			},
-			textTransform: 'capitalize',
-		},
-	}),
 	autoCompleteInput: {
 		root: {
 			'& .MuiAutocomplete-inputRoot': {

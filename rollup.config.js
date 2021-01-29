@@ -12,7 +12,7 @@ module.exports = [
 		output: {
 			file: 'dist/index.js',
 			format: 'umd',
-			name: 'reactDropzone',
+			name: 'englobTechMaterial',
 			globals: umdGlobals,
 			sourcemap: 'inline',
 			exports: 'named',
