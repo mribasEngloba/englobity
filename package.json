@@ -1,25 +1,81 @@
 {
 	"name": "@engloba-tech/englobity",
 	"version": "0.0.1",
-	"description": "Custom components for engloba web apps",
-	"main": "index.js",
-	"types": "index.d.ts",
+	"description": "Customs web components with React and Material",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "cross-env NODE_ENV=test npm run eslint:src && jest --coverage",
+		"test:watch": "cross-env NODE_ENV=test jest --watch",
+		"clean": "rimraf ./dist",
+		"build": "npm run clean && npm run build:umd && npm run build:es",
+		"build:umd": "cross-env NODE_ENV=es rollup -c",
+		"build:es": "cross-env BABEL_ENV=es babel ./src --out-dir ./dist/es --ignore '**/*.test.js'",
+		"prepublish": "npm run build",
 		"lint": "eslint \"./src/**/*.{js,jsx}\""
 	},
-	"author": "",
+	"keywords": [
+		"material-ui",
+		"form",
+		"validation"
+	],
+	"main": "dist/index.js",
+	"module": "dist/es/index.js",
 	"dependencies": {
-		"@material-ui/core": "^4.11.0",
+		"prop-types": "^15.0.0"
+	},
+	"peerDependencies": {
+		"@material-ui/core": "^1.0.0 || ^3.0.0 || ^4.0.0",
 		"@material-ui/lab": "^4.0.0-alpha.56",
+		"react": "^15.0.0 || ^16.0.0 || ^17.0.0",
+		"react-material-ui-form-validator": "^2.1.2"
+	},
+	"devDependencies": {
 		"react": "^17.0.1",
-		"react-dom": "^17.0.1"
+		"react-dom": "^15.0.0 || ^16.0.0 || ^17.0.0",
+		"@babel/cli": "^7.11.6",
+		"@babel/core": "^7.11.6",
+		"@babel/plugin-external-helpers": "^7.10.4",
+		"@babel/plugin-proposal-do-expressions": "^7.10.4",
+		"@babel/plugin-proposal-export-default-from": "^7.10.4",
+		"@babel/plugin-proposal-logical-assignment-operators": "^7.11.0",
+		"@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
+		"@babel/plugin-proposal-optional-chaining": "^7.11.0",
+		"@babel/plugin-proposal-pipeline-operator": "^7.10.5",
+		"@babel/plugin-transform-runtime": "^7.11.5",
+		"@babel/preset-env": "^7.11.5",
+		"@babel/preset-react": "^7.10.4",
+		"@babel/register": "^7.11.5",
+		"@typescript-eslint/eslint-plugin": "^4.0.0",
+		"@typescript-eslint/parser": "^4.0.0",
+		"babel-eslint": "10.x",
+		"babel-jest": "^26.3.0",
+		"babel-plugin-add-module-exports": "^1.0.2",
+		"babel-plugin-dynamic-import-node": "^2.3.3",
+		"eslint": "^7.5.0",
+		"eslint-config-react-app": "^6.0.0",
+		"eslint-plugin-flowtype": "^5.2.0",
+		"eslint-plugin-import": "^2.22.0",
+		"eslint-plugin-jest": "^24.0.0",
+		"eslint-plugin-jsx-a11y": "^6.3.1",
+		"eslint-plugin-react": "^7.20.3",
+		"eslint-plugin-react-hooks": "^4.0.8",
+		"eslint-plugin-testing-library": "^3.9.0",
+		"rimraf": "^3.0.2",
+		"rollup": "^2.26.10",
+		"rollup-plugin-babel": "^4.4.0",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-uglify": "^6.0.4",
+		"@testing-library/dom": "^7.24.1",
+		"@testing-library/jest-dom": "^5.11.4",
+		"@testing-library/react": "^11.0.2",
+		"@testing-library/react-hooks": "^3.4.1",
+		"cross-env": "^7.0.2",
+		"jest": "^26.4.2"
 	},
 	"eslintConfig": {
 		"extends": [
 			"react-app",
-			"react-app/jest",
-			"plugin:react/recommended"
+			"react-app/jest"
 		],
 		"plugins": [
 			"react-hooks"
@@ -48,16 +104,14 @@
 			]
 		}
 	},
-	"devDependencies": {
-		"@craco/craco": "^5.7.0",
-		"@testing-library/react": "^11.2.2",
-		"@testing-library/react-hooks": "^3.7.0",
-		"@types/jest": "^26.0.15",
-		"@wojtekmaj/enzyme-adapter-react-17": "^0.3.1",
-		"cross-env": "^7.0.2",
-		"enzyme": "^3.11.0",
-		"husky": "^4.3.0",
-		"react-test-renderer": "^17.0.1"
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Engloba-Tech/englobity.git"
 	},
-	"license": "ISC"
+	"author": "engloba-tech",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Engloba-Tech/englobity/issues"
+	},
+	"homepage": "https://github.com/Engloba-Tech/englobity#readme"
 }
