@@ -12,4 +12,5 @@ export * from './Summary';
 export * from './Switch';
 export * from './Tabs';
 export * from './TextArea';
+export * from './Avatar';
 export * from './useHandleOpen';
