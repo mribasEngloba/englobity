@@ -14,8 +14,13 @@
 	},
 	"keywords": [
 		"material-ui",
-		"form",
-		"validation"
+		"react",
+		"components",
+		"engloba",
+		"validation",
+		"chip",
+		"input",
+		"form"
 	],
 	"main": "dist/index.js",
 	"module": "dist/es/index.js",

@@ -14,6 +14,7 @@ export function CustomAvatar({
 	userThumbnai,
 	logOutText,
 	myAccountText,
+	...props
 }) {
 	const classes = useAvatarStyles();
 	const [anchorEl, setAnchorEl] = useState(null);
@@ -52,16 +53,8 @@ export function CustomAvatar({
 				keepMounted
 				MenuListProps={{ style: { padding: 0 } }}
 				disableAutoFocusItem
-				elevation={3}
 				getContentAnchorEl={null}
-				anchorOrigin={{
-					vertical: 'bottom',
-					horizontal: 'center',
-				}}
-				transformOrigin={{
-					vertical: 'top',
-					horizontal: 'center',
-				}}
+				{...props}
 				open={isMenuOpen}
 				onClose={handleMenuClose}
 			>

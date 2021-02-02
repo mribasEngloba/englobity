@@ -19,7 +19,7 @@ export function Summary({ text, severity, className, ...props }) {
 					</IconButton>
 				}
 			>
-				{/* TODO: gestionar multi errors */}
+				{/* TODO: manage multi errors */}
 				{text}
 			</Alert>
 		</Collapse>

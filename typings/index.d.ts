@@ -1,93 +1,187 @@
-// import * as React from 'react';
-// import { FormControlProps } from '@material-ui/core/FormControl';
-// import { FormHelperTextProps } from '@material-ui/core/FormHelperText';
-// import { InputProps as StandardInputProps } from '@material-ui/core/Input';
-// import { FilledInputProps } from '@material-ui/core/FilledInput';
-// import { OutlinedInputProps } from '@material-ui/core/OutlinedInput';
-// import { InputLabelProps } from '@material-ui/core/InputLabel';
-import { InputProps } from '@material-ui/core';
+import * as React from 'react';
+import {
+	InputProps,
+	MenuProps,
+	ButtonProps,
+	FormControlProps,
+	CollapseProps,
+	SwitchProps,
+} from '@material-ui/core';
+import { Theme } from '@material-ui/core/styles';
+import { AutocompleteProps } from '@material-ui/lab';
+import { SvgIconComponent } from '@material-ui/icons';
+import { Props as MaterialUIChipInput } from 'material-ui-chip-input';
+import { ValidatorFormProps } from 'react-material-ui-form-validator';
+import { DatePickerProps } from '@material-ui/pickers';
 
-// // export interface ChipRendererArgs {
-// //   value: string;
-// //   text: string;
-// //   chip: any;
-// //   isFocused: boolean;
-// //   isDisabled: boolean;
-// //   isReadOnly: boolean;
-// //   handleClick: React.EventHandler<any>;
-// //   handleDelete: React.EventHandler<any>;
-// //   className: string;
-// // }
+interface ValidatorProps {
+	validators?: Array<string>;
+	errorMessages?: Array<string>;
+}
 
-// // export type ChipRenderer = (
-// //   args: ChipRendererArgs,
-// //   key: any
-// // ) => React.ReactNode;
+interface LoadingProps {
+	isLoading?: boolean;
+}
+export interface InputEnglobityProps
+	extends InputProps,
+		ValidatorProps,
+		LoadingProps {
+	icon?: SvgIconComponent;
+	isLoading?: boolean;
+	skeletonHeight?: 48;
+	skeletonClassName?: string;
+	validators?: Array<string>;
+	errorMessages?: Array<string>;
+}
 
-// type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
+export interface AsyncInputAutocompleteEnglobityProps
+	extends AutocompleteProps,
+		ValidatorProps,
+		LoadingProps {
+	validators?: Array<string>;
+	errorMessages?: Array<string>;
+	icon?: SvgIconComponent;
+	requestAction: Promise<object>;
+	defaultInputValue: string;
+	skeletonHeight?: 48;
+}
 
-// // omitting onChange from FormControlProps as we use a custom onChange
-// export interface BaseTextFieldProps extends Omit<FormControlProps, 'onChange'> {
-// 	allowDuplicates?: boolean;
-// 	alwaysShowPlaceholder?: boolean;
-// 	blurBehavior?: 'clear' | 'add' | 'add-or-clear' | 'ignore';
-// 	chipRenderer?: ChipRenderer;
-// 	classes?: Record<string, string>;
-// 	clearInputValueOnChange?: boolean;
-// 	dataSource?: any[];
-// 	dataSourceConfig?: {
-// 		text: string;
-// 		value: string;
-// 	};
-// 	defaultValue?: any[];
-// 	disabled?: boolean;
-// 	disableUnderline?: boolean;
-// 	FormHelperTextProps?: FormHelperTextProps;
-// 	fullWidth?: boolean;
-// 	fullWidthInput?: boolean;
-// 	helperText?: React.ReactNode;
-// 	InputLabelProps?: InputLabelProps;
-// 	inputRef?: (ref: React.Ref<HTMLInputElement>) => any;
-// 	inputValue?: string;
-// 	label?: React.ReactNode;
-// 	newChipKeyCodes?: number[];
-// 	newChipKeys?: string[];
-// 	onAdd?: (chip: any) => any;
-// 	onBeforeAdd?: (chip: any) => boolean;
-// 	onChange?: (chips: any[]) => any;
-// 	onDelete?: (chip: any, index: number) => any;
-// 	onUpdateInput?: React.EventHandler<any>;
-// 	placeholder?: string;
-// 	readOnly?: boolean;
-// 	value?: any[];
-// 	variant?: 'outlined' | 'standard' | 'filled';
-// }
+export interface AvatarEnglobityProps extends MenuProps {
+	id: string;
+	onLogOut: Function;
+	userName: string;
+	letters: string;
+	userEmail: string;
+	userThumbnai?: string;
+	logOutText: string;
+	myAccountText: string;
+}
 
-export interface InputEnglobityProps extends InputProps {}
+export interface ButtonEnglobityProps extends ButtonProps {
+	type: 'primary' | 'secondary';
+}
+
+export interface ChipInputEnglobityProps
+	extends MaterialUIChipInput,
+		LoadingProps {
+	skeletonHeight: 48;
+	icon?: SvgIconComponent;
+}
+
+export interface DateTimePickerEnglobityProps
+	extends DatePickerProps,
+		LoadingProps {
+	withHours: boolean;
+	value: string;
+	icon?: SvgIconComponent;
+	inputClassName: string;
+	skeletonHeight?: 48;
+}
+
+type ButtonsObj = {
+	id: string;
+	onClick: Function;
+	text: string;
+	color: 'primary' | 'secondary';
+};
+
+export interface DialogModalEnglobityProps {
+	title: string;
+	description: string;
+	isOpen: boolean;
+	handleClose: Function;
+	buttons: Array<ButtonsObj>;
+}
+
+export interface DropzoneEnglobityProps extends LoadingProps {
+	onDrop: Function;
+	file: string;
+	onDeleteFile: Function;
+	labelDrop: string;
+	skeletonHeight?: 48;
+}
+
+export interface FormEnglobityProps extends ValidatorFormProps {
+	errors: string;
+	elementRef: React.RefObject<HTMLFormElement>;
+}
+
+type SelectElement = {
+	value: Array<any>;
+	icons: SvgIconComponent;
+	name: string;
+};
+export interface SelectEnglobityProps extends FormControlProps, LoadingProps {
+	title;
+	elements: Array<SelectElement>;
+	menuItemRender: Function;
+	skeletonHeight?: 48;
+}
+
+export interface SummaryEnglobityProps extends CollapseProps {
+	text: string;
+	severity: 'error' | 'warning' | 'info' | 'success';
+}
+
+export interface SwitchEnglobityProps extends SwitchProps, LoadingProps {
+	label: string;
+	skeletonHeight?: 48;
+}
+
+type TabElement = {
+	name: string;
+	icon: SvgIconComponent;
+	children: JSX.Element;
+};
+
+export interface TabsEnglobityProps {
+	tabs: Array<TabElement>;
+	defaultPosition?: 0;
+	classNameContent: string;
+}
+
+export interface TextAreaEnglobityProps extends InputProps {
+	rows?: 4;
+}
 
 declare const Input: React.ComponentType<InputEnglobityProps>;
+declare const AsyncInputAutocomplete: React.ComponentType<AsyncInputAutocompleteEnglobityProps>;
+declare const Avatar: React.ComponentType<AvatarEnglobityProps>;
+declare const Button: React.ComponentType<ButtonEnglobityProps>;
+declare const ChipInput: React.ComponentType<ChipInputEnglobityProps>;
+declare const DateTimePicker: React.ComponentType<DateTimePickerEnglobityProps>;
+declare const DialogModal: React.ComponentType<DialogModalEnglobityProps>;
+declare const Dropzone: React.ComponentType<DropzoneEnglobityProps>;
+declare const Form: React.ComponentType<FormEnglobityProps>;
+declare const Select: React.ComponentType<SelectEnglobityProps>;
+declare function createEnglobaMaterialTheme(
+	color: object,
+	globals: object,
+	fontFamily: object
+): Theme;
+declare const Summary: React.ComponentType<SummaryEnglobityProps>;
+declare const Switch: React.ComponentType<SwitchEnglobityProps>;
+declare const Tabs: React.ComponentType<TabsEnglobityProps>;
+declare const TextArea: React.ComponentType<TextAreaEnglobityProps>;
+declare function useHandleOpen(
+	open?: false
+): { isOpen: boolean; handleOpen: Function; handleClose: Function };
 
-export { Input };
-
-// export interface StandardTextFieldProps extends BaseTextFieldProps {
-// 	variant?: 'standard';
-// 	InputProps?: Partial<StandardInputProps>;
-// }
-
-// export interface FilledTextFieldProps extends BaseTextFieldProps {
-// 	variant: 'filled';
-// 	InputProps?: Partial<FilledInputProps>;
-// }
-
-// export interface OutlinedTextFieldProps extends BaseTextFieldProps {
-// 	variant: 'outlined';
-// 	InputProps?: Partial<OutlinedInputProps>;
-// }
-
-// export type Props =
-// 	| StandardTextFieldProps
-// 	| FilledTextFieldProps
-// 	| OutlinedTextFieldProps;
-
-// declare const ChipInput: React.ComponentType<Props>;
-// export default ChipInput;
+export {
+	Input,
+	AsyncInputAutocomplete,
+	Avatar,
+	Button,
+	ChipInput,
+	DateTimePicker,
+	DialogModal,
+	Dropzone,
+	Form,
+	Select,
+	createEnglobaMaterialTheme,
+	Summary,
+	Switch,
+	Tabs,
+	TextArea,
+	useHandleOpen,
+};

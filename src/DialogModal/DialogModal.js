@@ -50,6 +50,13 @@ DialogModal.propTypes = {
 	description: PropTypes.string.isRequired,
 	isOpen: PropTypes.bool.isRequired,
 	handleClose: PropTypes.func.isRequired,
-	buttons: PropTypes.arrayOf(PropTypes.object),
+	buttons: PropTypes.arrayOf(
+		PropTypes.shape({
+			id: PropTypes.string,
+			onClick: PropTypes.func,
+			text: PropTypes.string,
+			color: PropTypes.string,
+		})
+	),
 	children: PropTypes.element.isRequired,
 };
