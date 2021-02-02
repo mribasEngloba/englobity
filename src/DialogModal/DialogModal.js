@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
 import {
 	Dialog,
 	DialogActions,
@@ -34,7 +33,7 @@ export function DialogModal({
 					buttons.map((button, i) => (
 						<Button
 							id={button.id || `dialog_button_${i}`}
-							key={shortid.generate()}
+							key={`dialog_button_${i}`}
 							onClick={button.onClick}
 							color={button.color || 'primary'}
 						>

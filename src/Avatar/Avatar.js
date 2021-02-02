@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Menu, MenuItem, Avatar } from '@material-ui/core';
 import { useAvatarStyles } from './avatar.styles';
-import { useTranslation } from 'react-i18next';
 import { Card, CardContent, Link, Typography } from '@material-ui/core';
 const MENU_ID = 'primary-search-account-menu';
 
@@ -13,9 +12,10 @@ export function CustomAvatar({
 	letters,
 	userEmail,
 	userThumbnai,
+	logOutText,
+	myAccountText,
 }) {
 	const classes = useAvatarStyles();
-	const { t } = useTranslation();
 	const [anchorEl, setAnchorEl] = useState(null);
 
 	const isMenuOpen = Boolean(anchorEl);
@@ -69,7 +69,7 @@ export function CustomAvatar({
 					<div className={`${classes.grow} ${classes.signOutButton}`}>
 						<MenuItem onClick={handleLogOut} className={classes.text}>
 							<Typography variant='subtitle1' color='textSecondary'>
-								{t('navigation.logOut')}
+								{logOutText || 'logout'}
 							</Typography>
 						</MenuItem>
 					</div>
@@ -90,7 +90,7 @@ export function CustomAvatar({
 							<Typography variant='subtitle1' color='textSecondary'>
 								{userEmail}
 							</Typography>
-							<Link href='#'>{t('navigation.myAccount')}</Link>
+							<Link href='#'>{myAccountText || 'My account'}</Link>
 						</CardContent>
 					</div>
 				</Card>
@@ -105,5 +105,7 @@ CustomAvatar.propTypes = {
 	userName: PropTypes.string.isRequired,
 	letters: PropTypes.string.isRequired,
 	userEmail: PropTypes.string.isRequired,
+	logOutText: PropTypes.string,
+	myAccountText: PropTypes.string,
 	userThumbnai: PropTypes.string,
 };

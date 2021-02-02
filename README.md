@@ -45,7 +45,11 @@ Email: your github acout email
 
 Then, we will name next package version with this command
 
-> npm version <update_type>
+> npm version x.x.x
+
+where X is the number of version.
+
+and finnaly
 
 > npm publish
 
