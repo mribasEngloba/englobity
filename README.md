@@ -1,6 +1,6 @@
 # Englobity
 
-Engloba Tech custom react-material components
+React Material-ui custom web components
 
 ## Installation
 
