@@ -2,6 +2,10 @@
 
 Engloba Tech custom react-material components
 
+## Installation
+
+> npm i --save @material-ui/pickers @material-ui/core @material-ui/lab @engloba-tech/englobity
+
 ## How to run it locally
 
 to try it localy, we must install this package in other project.
@@ -10,7 +14,7 @@ first of all we need to clone the repository in our machine, then, run this coma
 
 > npm install
 
-then, go to the project you want to try this package and run this commands.
+once all dependencies installed, go to the project you want to try this package and run this commands.
 
 > npm insta <local-englobity-path<l>>/englobity
 
@@ -18,28 +22,22 @@ and then link react
 
 > npm link <local-englobity-path<l>>/node_modules/react
 
-after those commands, you can run the selected project, and try your localy englobity
+after those commands, you can run the selected project, and try your local englobity
 
 ## How to publish new version
 
-This package is registred in [Engloba Tech GitHub](https://github.com/orgs/Engloba-Tech/packages?repo_name=englobity) registry. So, if you dont have permissions in this organizations, you cannot publish new versions of this package.
+This package is associated to NPM englba-tech organization, so, u must have permisions first, after publish new package version.
 
-Having this clear, we must obtain an acces token from our github account.
-
-[here you have a link](https://docs.github.com/es/github/authenticating-to-github/creating-a-personal-access-token)
-
-and mark `write:packages` option.
-
-After generating acces token, we must login in our machin, following this command
+Lets login as a user organization
 
 > npm login
 
 ```bash
 ## npm login output
 
-Username: user github name
-Password: github acces token
-Email: your github acout email
+Username: user npm account
+Password: password npm account
+Email: email npm account
 
 ```
 
@@ -51,6 +49,4 @@ where X is the number of version.
 
 and finnaly
 
-> npm publish
-
-## How to test it
+> npm publish --access public
