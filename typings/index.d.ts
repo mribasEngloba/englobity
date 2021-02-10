@@ -55,6 +55,7 @@ export interface AvatarEnglobityProps extends MenuProps {
 	userThumbnai?: string;
 	logOutText: string;
 	myAccountText: string;
+	myAccountLink: string;
 }
 
 export interface ButtonEnglobityProps extends ButtonProps {
@@ -154,7 +155,7 @@ declare const DialogModal: React.ComponentType<DialogModalEnglobityProps>;
 declare const Dropzone: React.ComponentType<DropzoneEnglobityProps>;
 declare const Form: React.ComponentType<FormEnglobityProps>;
 declare const Select: React.ComponentType<SelectEnglobityProps>;
-declare function useEnglobaMaterialTheme(
+declare function createEnglobaMaterialTheme(
 	color: object,
 	globals: object,
 	fontFamily: object
@@ -178,7 +179,7 @@ export {
 	Dropzone,
 	Form,
 	Select,
-	useEnglobaMaterialTheme,
+	createEnglobaMaterialTheme,
 	Summary,
 	Switch,
 	Tabs,

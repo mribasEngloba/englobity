@@ -14,6 +14,7 @@ export function CustomAvatar({
 	userThumbnai,
 	logOutText,
 	myAccountText,
+	myAccountLink,
 	...props
 }) {
 	const classes = useAvatarStyles();
@@ -83,7 +84,11 @@ export function CustomAvatar({
 							<Typography variant='subtitle1' color='textSecondary'>
 								{userEmail}
 							</Typography>
-							<Link href='#'>{myAccountText || 'My account'}</Link>
+							{myAccountLink && (
+								<Link href={myAccountLink}>
+									{myAccountText || 'My account'}
+								</Link>
+							)}
 						</CardContent>
 					</div>
 				</Card>
@@ -100,5 +105,6 @@ CustomAvatar.propTypes = {
 	userEmail: PropTypes.string.isRequired,
 	logOutText: PropTypes.string,
 	myAccountText: PropTypes.string,
+	myAccountLink: PropTypes.string,
 	userThumbnai: PropTypes.string,
 };
