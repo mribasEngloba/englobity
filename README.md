@@ -16,7 +16,7 @@ first of all we need to clone the repository in our machine, then, run this coma
 
 once all dependencies installed, go to the project you want to try this package and run this commands.
 
-> npm insta <local-englobity-path<l>>/englobity
+> npm install <local-englobity-path<l>>/englobity
 
 and then link react
 

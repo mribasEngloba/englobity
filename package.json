@@ -7,7 +7,7 @@
 		"test:watch": "cross-env NODE_ENV=test jest --watch",
 		"clean": "rimraf ./dist",
 		"build": "npm run clean && npm run build:umd && npm run build:es",
-		"build:umd": "cross-env NODE_ENV=es rollup -c",
+		"build:umd": "rollup -c",
 		"build:es": "cross-env BABEL_ENV=es babel ./src --out-dir ./dist/es --ignore '**/*.test.js'",
 		"prepublish": "npm run build",
 		"lint": "eslint \"./src/**/*.{js,jsx}\""
@@ -28,6 +28,7 @@
 	"dependencies": {
 		"material-ui-chip-input": "^2.0.0-beta.2",
 		"prop-types": "^15.0.0",
+		"react-dropzone": "^11.3.1",
 		"react-material-ui-form-validator": "^2.1.2",
 		"shortid": "^2.2.16"
 	},
