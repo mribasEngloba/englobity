@@ -1,14 +1,16 @@
 import { font } from './font.styles.js';
 import { media, time } from './utils.styles.js';
 import { components } from './components.styles.js';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, useTheme } from '@material-ui/core/styles';
 
-export function createEnglobaMaterialTheme(color, globals, fontFamily) {
+export function useEnglobaMaterialTheme(color, globals, fontFamily) {
+	const { palette } = useTheme();
+
 	return createMuiTheme({
 		font,
 		media,
 		time,
-		palette: color,
+		palette: { ...palette, ...color },
 		typography: {
 			fontFamily,
 		},

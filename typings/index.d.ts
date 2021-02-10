@@ -154,7 +154,7 @@ declare const DialogModal: React.ComponentType<DialogModalEnglobityProps>;
 declare const Dropzone: React.ComponentType<DropzoneEnglobityProps>;
 declare const Form: React.ComponentType<FormEnglobityProps>;
 declare const Select: React.ComponentType<SelectEnglobityProps>;
-declare function createEnglobaMaterialTheme(
+declare function useEnglobaMaterialTheme(
 	color: object,
 	globals: object,
 	fontFamily: object
@@ -178,7 +178,7 @@ export {
 	Dropzone,
 	Form,
 	Select,
-	createEnglobaMaterialTheme,
+	useEnglobaMaterialTheme,
 	Summary,
 	Switch,
 	Tabs,
