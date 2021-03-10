@@ -6,6 +6,7 @@ import ChipInput from 'material-ui-chip-input';
 import { useChipInputStyles } from './chipInput.styles';
 import { ValidatorComponent } from 'react-material-ui-form-validator';
 
+// TODO ADD VALIDATIONS
 function ChipInputImplementation({
 	value,
 	icon,
@@ -43,13 +44,7 @@ ChipInputImplementation.propTypes = {
 
 export class CustomChipInput extends ValidatorComponent {
 	renderValidatorComponent() {
-		const {
-			errorMessages,
-			validators,
-			requiredError,
-			value,
-			...rest
-		} = this.props;
+		const { errorMessages, validators, requiredError, ...rest } = this.props;
 
 		return (
 			<ChipInputImplementation
