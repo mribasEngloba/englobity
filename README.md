@@ -6,47 +6,95 @@ React Material-ui custom web components
 
 > npm i --save @material-ui/pickers @material-ui/core @material-ui/lab @engloba-tech/englobity
 
-## How to run it locally
+After Instalation, we must initiate englobityTheme.
 
-to try it localy, we must install this package in other project.
+Create your own styles in your root project
 
-first of all we need to clone the repository in our machine, then, run this comand inside `englobity` folder
+> styles/color.styles.js
 
-> npm install
-
-once all dependencies installed, go to the project you want to try this package and run this commands.
-
-> npm install <local-englobity-path<l>>/englobity
-
-and then link react
-
-> npm link <local-englobity-path<l>>/node_modules/react
-
-after those commands, you can run the selected project, and try your local englobity
-
-## How to publish new version
-
-This package is associated to NPM englba-tech organization, so, u must have permisions first, after publish new package version.
-
-Lets login as a user organization
-
-> npm login
-
-```bash
-## npm login output
-
-Username: user npm account
-Password: password npm account
-Email: email npm account
-
+```js
+export const color = {
+	basic: {
+		brightest: '',
+		brighter: '',
+		bright: '',
+		normal: '',
+		semidark: '',
+		dark: '',
+		darker: '',
+	},
+	primary: {
+		dark: '',
+		light: '',
+		main: '',
+	},
+	secondary: {
+		dark: '',
+		light: '',
+		main: '',
+	},
+	action: {
+		error: '',
+		activeButton: '',
+	},
+};
 ```
 
-Then, we will name next package version with this command
+> styles/globals.styles.js
 
-> npm version x.x.x
+```js
+import { color } from './color.styles';
 
-where X is the number of version.
+export const globals = {
+	html: {
+		fontSize: '',
+	},
+	body: {
+		backgroundColor: color.secondary.main,
+	},
+};
+```
 
-and finnaly
+And use methon `createEnglobaMaterialTheme` to define the Theme
 
-> npm publish --access public
+> styles/index.js
+
+```js
+import { color } from './color.styles';
+import { globals } from './globals.styles';
+import { createEnglobaMaterialTheme } from '@engloba-tech/englobity';
+
+// create material engloba theme
+const fontFamily = ['Poppins', 'Roboto'].join(',');
+const theme = createEnglobaMaterialTheme(color, globals, fontFamily);
+
+export default theme;
+```
+
+This theme, you must instanciate at your index.js
+
+> index.js
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import globalStyles from './styles';
+import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+
+[. . .]
+
+ReactDOM.render(
+  <ThemeProvider theme={globalStyles}>
+    {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+    <CssBaseline />
+    <App />
+  </ThemeProvider>,
+document.getElementById('root'));
+```
+
+## More def information
+
+- [How to run it Localy](https://github.com/Engloba-Tech/englobity/readme/runItLocally.md)
+- [How to publish new version](https://github.com/Engloba-Tech/englobity/readme/publishIt.md)

@@ -4,8 +4,9 @@ import { Skeleton } from '@material-ui/lab';
 import { InputAdornment } from '@material-ui/core';
 import ChipInput from 'material-ui-chip-input';
 import { useChipInputStyles } from './chipInput.styles';
+import { ValidatorComponent } from 'react-material-ui-form-validator';
 
-export function CustomChipInput({
+function ChipInputImplementation({
 	value,
 	icon,
 	InputProps,
@@ -32,10 +33,33 @@ export function CustomChipInput({
 	);
 }
 
-CustomChipInput.propTypes = {
+ChipInputImplementation.propTypes = {
 	value: PropTypes.array,
 	icon: PropTypes.element,
 	InputProps: PropTypes.object,
 	isLoading: PropTypes.bool,
 	skeletonHeight: PropTypes.number,
 };
+
+export class CustomChipInput extends ValidatorComponent {
+	renderValidatorComponent() {
+		const {
+			errorMessages,
+			validators,
+			requiredError,
+			value,
+			...rest
+		} = this.props;
+
+		return (
+			<ChipInputImplementation
+				ref={(r) => {
+					this.input = r;
+				}}
+				error={!this.isValid}
+				helperText={!this.isValid ? this.getErrorMessage() : ''}
+				{...rest}
+			/>
+		);
+	}
+}

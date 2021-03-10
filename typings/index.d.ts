@@ -14,6 +14,10 @@ import { Props as MaterialUIChipInput } from 'material-ui-chip-input';
 import { ValidatorFormProps } from 'react-material-ui-form-validator';
 import { DatePickerProps } from '@material-ui/pickers';
 
+declare module '@date-io/type' {
+	export type DateType = Date;
+}
+
 interface ValidatorProps {
 	validators?: Array<string>;
 	errorMessages?: Array<string>;

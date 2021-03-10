@@ -1,11 +1,12 @@
 {
 	"name": "@engloba-tech/englobity",
-	"version": "0.0.13",
+	"version": "0.0.14",
 	"description": "Customs web components with React and Material",
 	"scripts": {
 		"test": "cross-env NODE_ENV=test npm run lint && jest --coverage",
 		"test:watch": "cross-env NODE_ENV=test jest --watch",
 		"clean": "rimraf ./dist",
+		"generate": "typedoc typings/index.d.ts",
 		"build": "npm run clean && npm run build:umd && npm run build:es",
 		"build:umd": "rollup -c",
 		"build:es": "cross-env BABEL_ENV=es babel ./src --out-dir ./dist/es --ignore '**/*.test.js'",
@@ -33,9 +34,9 @@
 		"shortid": "^2.2.16"
 	},
 	"peerDependencies": {
-		"@material-ui/pickers": "^3.2.10",
 		"@material-ui/core": "^1.0.0 || ^3.0.0 || ^4.0.0",
 		"@material-ui/lab": "^4.0.0-alpha.56",
+		"@material-ui/pickers": "^3.2.10",
 		"react": "^15.0.0 || ^16.0.0 || ^17.0.0"
 	},
 	"devDependencies": {
@@ -89,6 +90,7 @@
 		"rollup-plugin-dts": "^2.0.1",
 		"rollup-plugin-node-resolve": "^5.2.0",
 		"rollup-plugin-uglify": "^6.0.4",
+		"typedoc": "^0.20.25",
 		"typescript": "^4.1.3"
 	},
 	"eslintConfig": {
