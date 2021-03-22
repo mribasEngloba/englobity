@@ -51,8 +51,8 @@ export class CustomChipInput extends ValidatorComponent {
 				ref={(r) => {
 					this.input = r;
 				}}
-				error={!this.state.isValid}
-				helperText={!this.state.isValid ? this.state.getErrorMessage() : ''}
+				error={!this.isValid}
+				helperText={!this.isValid ? this.getErrorMessage() : ''}
 				{...rest}
 			/>
 		);
