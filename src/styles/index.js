@@ -3,8 +3,14 @@ import { media, time } from './utils.styles.js';
 import { components } from './components.styles.js';
 import { createMuiTheme } from '@material-ui/core/styles';
 
-export function createEnglobaMaterialTheme(color, globals, fontFamily) {
+export function createEnglobaMaterialTheme(
+	color,
+	globals,
+	fontFamily,
+	optiosn
+) {
 	return createMuiTheme({
+		...optiosn,
 		font,
 		media,
 		time,
