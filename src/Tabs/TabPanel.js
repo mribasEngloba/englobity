@@ -10,8 +10,12 @@ export function TabPanel({ children, value, index, ...props }) {
 			hidden={value !== index}
 			id={`full-width-tabpanel-${index}`}
 			aria-labelledby={`full-width-tab-${index}`}
+			style={{
+				width: '100%',
+				visibility: index === value ? 'visible' : 'hidden',
+			}}
 		>
-			{value === index && <Box>{children}</Box>}
+			<Box>{children}</Box>
 		</div>
 	);
 }
