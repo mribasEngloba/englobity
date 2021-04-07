@@ -6,6 +6,7 @@ import {
 	FormControlProps,
 	CollapseProps,
 	SwitchProps,
+	TooltipProps,
 } from '@material-ui/core';
 import { Theme } from '@material-ui/core/styles';
 import { AutocompleteProps } from '@material-ui/lab';
@@ -64,6 +65,7 @@ export interface AvatarEnglobityProps extends MenuProps {
 
 export interface ButtonEnglobityProps extends ButtonProps {
 	type: 'primary' | 'secondary';
+	tooltip: TooltipProps;
 }
 
 export interface ChipInputEnglobityProps

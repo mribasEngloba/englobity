@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const defauldButton = (font) => ({
 	height: '2.4rem',
 	padding: '0rem 1rem',
-	minWidth: '6.25rem',
+	// minWidth: '6.25rem',
 	borderRadius: '8px',
 	fontStyle: 'normal',
 	fontWeight: font.weight.seminormal,
