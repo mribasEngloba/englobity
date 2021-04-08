@@ -6,9 +6,9 @@ import {
 	DialogContent,
 	DialogContentText,
 	DialogTitle,
-	Button,
 } from '@material-ui/core';
 import { useDialogModalStyles } from './dialogModal.styles';
+import { Button } from '../Button';
 
 export function DialogModal({
 	title,
@@ -32,13 +32,14 @@ export function DialogModal({
 				{buttons &&
 					buttons.map((button, i) => (
 						<Button
+							tooltip={{
+								title: button.text,
+								placement: 'top',
+							}}
 							id={button.id || `dialog_button_${i}`}
 							key={`dialog_button_${i}`}
-							onClick={button.onClick}
-							color={button.color || 'primary'}
-						>
-							{button.children}
-						</Button>
+							{...button}
+						/>
 					))}
 			</DialogActions>
 		</Dialog>
@@ -54,8 +55,9 @@ DialogModal.propTypes = {
 		PropTypes.shape({
 			id: PropTypes.string,
 			onClick: PropTypes.func,
+			text: PropTypes.string,
 			children: PropTypes.element,
-			color: PropTypes.string,
+			type: PropTypes.string,
 		})
 	),
 	children: PropTypes.element.isRequired,

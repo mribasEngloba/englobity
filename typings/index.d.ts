@@ -88,8 +88,9 @@ export interface DateTimePickerEnglobityProps
 type ButtonsObj = {
 	id: string;
 	onClick: Function;
+	text: string;
 	children: JSX.Element;
-	color: 'primary' | 'secondary';
+	type: 'primary' | 'secondary';
 };
 
 export interface DialogModalEnglobityProps {

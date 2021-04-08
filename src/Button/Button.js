@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import { Button, Tooltip } from '@material-ui/core';
 import { usButtonStyles } from './button.styles';
 
-export function CustomButton({ type, tooltip, children, className, ...props }) {
+export function CustomButton({
+	type = 'primary',
+	tooltip,
+	children,
+	className,
+	...props
+}) {
 	const classes = usButtonStyles();
 	return (
 		<Tooltip {...tooltip}>
