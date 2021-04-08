@@ -14,13 +14,13 @@ export function DialogModal({
 	title,
 	description,
 	isOpen,
-	handleClose,
 	buttons,
 	children,
+	...rest
 }) {
 	const classes = useDialogModalStyles();
 	return (
-		<Dialog open={isOpen} onClose={handleClose} aria-labelledby='dialog_title'>
+		<Dialog open={isOpen} aria-labelledby='dialog_title' {...rest}>
 			<DialogTitle id='dialog_title'>{title}</DialogTitle>
 			<DialogContent className={classes.dialogContent}>
 				<DialogContentText id='dialog_description'>
@@ -37,7 +37,7 @@ export function DialogModal({
 							onClick={button.onClick}
 							color={button.color || 'primary'}
 						>
-							{button.text}
+							{button.children}
 						</Button>
 					))}
 			</DialogActions>
@@ -49,12 +49,12 @@ DialogModal.propTypes = {
 	title: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
 	isOpen: PropTypes.bool.isRequired,
-	handleClose: PropTypes.func.isRequired,
+	onClose: PropTypes.func.isRequired,
 	buttons: PropTypes.arrayOf(
 		PropTypes.shape({
 			id: PropTypes.string,
 			onClick: PropTypes.func,
-			text: PropTypes.string,
+			children: PropTypes.element,
 			color: PropTypes.string,
 		})
 	),

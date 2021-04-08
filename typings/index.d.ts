@@ -88,7 +88,7 @@ export interface DateTimePickerEnglobityProps
 type ButtonsObj = {
 	id: string;
 	onClick: Function;
-	text: string;
+	children: JSX.Element;
 	color: 'primary' | 'secondary';
 };
 
@@ -96,7 +96,7 @@ export interface DialogModalEnglobityProps {
 	title: string;
 	description: string;
 	isOpen: boolean;
-	handleClose: Function;
+	onClose: Function;
 	buttons: Array<ButtonsObj>;
 }
 
