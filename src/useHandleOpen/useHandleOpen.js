@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export function useHandleOpen(open = false) {
 	const [isOpen, setIsOpen] = useState(open);
@@ -7,13 +7,13 @@ export function useHandleOpen(open = false) {
 		setIsOpen(open);
 	}, [open]);
 
-	function handleOpen() {
+	const handleOpen = useCallback(() => {
 		setIsOpen(true);
-	}
+	}, []);
 
-	function handleClose() {
+	const handleClose = useCallback(() => {
 		setIsOpen(false);
-	}
+	}, []);
 
 	return { isOpen, handleOpen, handleClose };
 }
