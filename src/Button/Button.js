@@ -7,31 +7,33 @@ export function CustomButton({
 	type = 'primary',
 	isSubmit = false,
 	tooltip,
+	disabled,
 	children,
 	className,
 	...props
 }) {
 	const classes = usButtonStyles();
-	return (
-		<>
-			{tooltip ? (
-				<Tooltip {...tooltip}>
-					<Button
-						type={isSubmit ? 'submit' : 'button'}
-						{...props}
-						className={`${className} ${classes[type] || classes.primary}`}
-					>
-						{children}
-					</Button>
-				</Tooltip>
-			) : (
+
+	function renderButton() {
+		return (
+			<div className={disabled ? 'Mui-disabled' : ''}>
 				<Button
+					disabled={disabled}
 					type={isSubmit ? 'submit' : 'button'}
 					{...props}
 					className={`${className} ${classes[type] || classes.primary}`}
 				>
 					{children}
 				</Button>
+			</div>
+		);
+	}
+	return (
+		<>
+			{tooltip ? (
+				<Tooltip {...tooltip}>{renderButton()}</Tooltip>
+			) : (
+				renderButton()
 			)}
 		</>
 	);
@@ -40,6 +42,7 @@ export function CustomButton({
 CustomButton.propTypes = {
 	type: PropTypes.oneOf(['primary', 'secondary']).isRequired,
 	isSubmit: PropTypes.bool,
+	disabled: PropTypes.bool,
 	tooltip: PropTypes.shape({
 		title: PropTypes.string,
 		placement: PropTypes.string,
