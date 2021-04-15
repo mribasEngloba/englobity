@@ -13,15 +13,27 @@ export function CustomButton({
 }) {
 	const classes = usButtonStyles();
 	return (
-		<Tooltip {...tooltip}>
-			<Button
-				type={isSubmit ? 'submit' : 'button'}
-				{...props}
-				className={`${className} ${classes[type] || classes.primary}`}
-			>
-				{children}
-			</Button>
-		</Tooltip>
+		<>
+			{tooltip ? (
+				<Tooltip {...tooltip}>
+					<Button
+						type={isSubmit ? 'submit' : 'button'}
+						{...props}
+						className={`${className} ${classes[type] || classes.primary}`}
+					>
+						{children}
+					</Button>
+				</Tooltip>
+			) : (
+				<Button
+					type={isSubmit ? 'submit' : 'button'}
+					{...props}
+					className={`${className} ${classes[type] || classes.primary}`}
+				>
+					{children}
+				</Button>
+			)}
+		</>
 	);
 }
 
