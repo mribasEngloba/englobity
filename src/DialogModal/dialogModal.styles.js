@@ -4,4 +4,10 @@ export const useDialogModalStyles = makeStyles((theme) => ({
 	dialogContent: {
 		overflow: 'initial',
 	},
+	actions: {
+		padding: '24px',
+	},
+	dialog: {
+		minWidth: '24rem',
+	},
 }));

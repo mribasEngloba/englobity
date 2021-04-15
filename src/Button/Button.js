@@ -5,6 +5,7 @@ import { usButtonStyles } from './button.styles';
 
 export function CustomButton({
 	type = 'primary',
+	isSubmit = false,
 	tooltip,
 	children,
 	className,
@@ -14,6 +15,7 @@ export function CustomButton({
 	return (
 		<Tooltip {...tooltip}>
 			<Button
+				type={isSubmit ? 'submit' : 'button'}
 				{...props}
 				className={`${className} ${classes[type] || classes.primary}`}
 			>
@@ -25,10 +27,14 @@ export function CustomButton({
 
 CustomButton.propTypes = {
 	type: PropTypes.oneOf(['primary', 'secondary']).isRequired,
+	isSubmit: PropTypes.bool,
 	tooltip: PropTypes.shape({
 		title: PropTypes.string,
 		placement: PropTypes.string,
 	}),
-	children: PropTypes.string.isRequired,
+	children: PropTypes.oneOfType([
+		PropTypes.arrayOf(PropTypes.node),
+		PropTypes.node,
+	]).isRequired,
 	className: PropTypes.string,
 };

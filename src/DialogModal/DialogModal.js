@@ -15,12 +15,18 @@ export function DialogModal({
 	description,
 	isOpen,
 	buttons,
+	className,
 	children,
 	...rest
 }) {
 	const classes = useDialogModalStyles();
 	return (
-		<Dialog open={isOpen} aria-labelledby='dialog_title' {...rest}>
+		<Dialog
+			open={isOpen}
+			aria-labelledby='dialog_title'
+			className={`${className} ${classes.dialog}`}
+			{...rest}
+		>
 			<DialogTitle id='dialog_title'>{title}</DialogTitle>
 			<DialogContent className={classes.dialogContent}>
 				<DialogContentText id='dialog_description'>
@@ -28,7 +34,7 @@ export function DialogModal({
 				</DialogContentText>
 				{children}
 			</DialogContent>
-			<DialogActions>
+			<DialogActions className={classes.actions}>
 				{buttons &&
 					buttons.map((button, i) => (
 						<Button
@@ -51,6 +57,7 @@ DialogModal.propTypes = {
 	description: PropTypes.string.isRequired,
 	isOpen: PropTypes.bool.isRequired,
 	onClose: PropTypes.func.isRequired,
+	className: PropTypes.string,
 	buttons: PropTypes.arrayOf(
 		PropTypes.shape({
 			id: PropTypes.string,
