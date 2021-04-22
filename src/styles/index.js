@@ -20,7 +20,21 @@ export function createEnglobaMaterialTheme(
 		},
 		overrides: {
 			MuiCssBaseline: {
-				'@global': globals,
+				'@global': {
+					'.MuiSkeleton-pulse': {
+						transform: 'inherit !important',
+					},
+					'.Mui-disabled': {
+						cursor: 'not-allowed !important',
+					},
+					'.MuiFormLabel-root': {
+						color: color.basic.dark,
+					},
+					'.MuiOutlinedInput-notchedOutline': {
+						borderColor: color.basic.dark,
+					},
+					...globals,
+				},
 			},
 			MuiOutlinedInput: {
 				...components.inputOutLine,
