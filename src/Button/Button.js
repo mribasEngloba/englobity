@@ -10,13 +10,14 @@ export function CustomButton({
 	disabled,
 	children,
 	className,
+	rootClassName,
 	...props
 }) {
 	const classes = usButtonStyles();
 
 	function renderButton() {
 		return (
-			<div className={disabled ? 'Mui-disabled' : ''}>
+			<div className={`${rootClassName} ${disabled ? 'Mui-disabled' : ''}`}>
 				<Button
 					disabled={disabled}
 					type={isSubmit ? 'submit' : 'button'}
@@ -52,4 +53,5 @@ CustomButton.propTypes = {
 		PropTypes.node,
 	]).isRequired,
 	className: PropTypes.string,
+	rootClassName: PropTypes.string,
 };

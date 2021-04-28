@@ -66,6 +66,7 @@ export interface AvatarEnglobityProps extends MenuProps {
 export interface ButtonEnglobityProps extends ButtonProps {
 	type: 'primary' | 'secondary';
 	tooltip: TooltipProps;
+	rootClassName: string;
 }
 
 export interface ChipInputEnglobityProps
