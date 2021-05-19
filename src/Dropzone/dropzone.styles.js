@@ -10,6 +10,9 @@ export const useDropzoneStyles = makeStyles((theme) => ({
 		border: `2px dashed ${theme.palette.primary.main}`,
 		flex: 1,
 		padding: '13.5px 4px',
+		'&.Mui-disabled': {
+			border: '2px dashed #c2c5ca !important',
+		},
 	},
 	wrapper: {
 		display: 'flex',

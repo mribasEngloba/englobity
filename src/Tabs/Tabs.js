@@ -12,12 +12,18 @@ function tabProps(index) {
 	};
 }
 
-export function CustomTabs({ tabs, defaultPosition = 0, classNameContent }) {
+export function CustomTabs({
+	tabs,
+	onChange,
+	defaultPosition = 0,
+	classNameContent,
+}) {
 	const [tabPosition, setTabPosition] = useState(defaultPosition);
 	const theme = useTheme();
 
 	const handleChange = (event, newValue) => {
 		setTabPosition(newValue);
+		onChange && onChange(event, newValue);
 	};
 
 	return (
@@ -77,6 +83,7 @@ CustomTabs.propTypes = {
 			children: PropTypes.node,
 		})
 	).isRequired,
+	onChange: PropTypes.func,
 	defaultPosition: PropTypes.number,
 	classNameContent: PropTypes.string,
 };

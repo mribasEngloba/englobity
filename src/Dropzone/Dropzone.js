@@ -11,6 +11,7 @@ import { useDropzoneStyles } from './dropzone.styles';
 export function Dropzone({
 	onDrop,
 	file,
+	disabled,
 	onDeleteFile,
 	labelDrop,
 	isLoading,
@@ -54,7 +55,10 @@ export function Dropzone({
 	});
 
 	return (
-		<div {...getRootProps()} className={classes.root}>
+		<div
+			{...getRootProps()}
+			className={`${classes.root} ${disabled ? 'Mui-disabled' : ''}`}
+		>
 			<div className={classes.wrapper}>
 				<input {...getInputProps()} />
 				{fileReaded ? (
@@ -62,6 +66,7 @@ export function Dropzone({
 						<Skeleton width='215px' height={skeletonHeight} />
 					) : (
 						<Chip
+							disabled={disabled}
 							icon={<FileCopy />}
 							label={fileReaded}
 							onDelete={() => handleDeleteFile()}
@@ -70,7 +75,11 @@ export function Dropzone({
 					)
 				) : (
 					<div className={classes.message}>
-						<Button variant='primary' className={classes.button}>
+						<Button
+							disabled={disabled}
+							variant='primary'
+							className={classes.button}
+						>
 							<CloudUploadIcon />
 						</Button>
 						<Typography color='textSecondary'>{labelDrop}</Typography>
@@ -85,6 +94,7 @@ Dropzone.propTypes = {
 	onDrop: PropTypes.func,
 	onDeleteFile: PropTypes.func,
 	file: PropTypes.string,
+	disabled: PropTypes.bool,
 	multiple: PropTypes.bool,
 	labelDrop: PropTypes.string,
 	isLoading: PropTypes.bool,
