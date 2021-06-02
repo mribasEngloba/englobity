@@ -21,7 +21,12 @@ export function Form({ children, errors, elementRef, ...props }) {
 
 	return (
 		<>
-			<Summary severity='error' text={errors} className={classes.summary} />
+			<Summary
+				severity='error'
+				text={errors.message}
+				detail={errors.detail}
+				className={classes.summary}
+			/>
 			<ValidatorForm noValidate ref={elementRef} {...props} autoComplete='off'>
 				{children}
 				<input type='submit' className={classes.hiddenSubmit} tabIndex='-1' />
@@ -35,7 +40,10 @@ Form.propTypes = {
 		PropTypes.func,
 		PropTypes.shape({ current: PropTypes.any }),
 	]),
-	errors: PropTypes.string,
+	errors: PropTypes.shape({
+		message: PropTypes.string,
+		detail: PropTypes.string,
+	}),
 	children: PropTypes.oneOfType([
 		PropTypes.arrayOf(PropTypes.node),
 		PropTypes.node,

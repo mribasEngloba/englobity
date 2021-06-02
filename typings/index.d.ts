@@ -111,7 +111,7 @@ export interface DropzoneEnglobityProps extends LoadingProps {
 }
 
 export interface FormEnglobityProps extends ValidatorFormProps {
-	errors: string;
+	errors: { message: string; detail: string };
 	elementRef: React.RefObject<HTMLFormElement>;
 }
 
@@ -129,6 +129,8 @@ export interface SelectEnglobityProps extends FormControlProps, LoadingProps {
 
 export interface SummaryEnglobityProps extends CollapseProps {
 	text: string;
+	detail: string;
+	seeMoreText: string;
 	severity: 'error' | 'warning' | 'info' | 'success';
 }
 
@@ -172,9 +174,11 @@ declare const Summary: React.ComponentType<SummaryEnglobityProps>;
 declare const Switch: React.ComponentType<SwitchEnglobityProps>;
 declare const Tabs: React.ComponentType<TabsEnglobityProps>;
 declare const TextArea: React.ComponentType<TextAreaEnglobityProps>;
-declare function useHandleOpen(
-	open?: false
-): { isOpen: boolean; handleOpen: Function; handleClose: Function };
+declare function useHandleOpen(open?: false): {
+	isOpen: boolean;
+	handleOpen: Function;
+	handleClose: Function;
+};
 
 export {
 	Input,

@@ -1,12 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert } from '@material-ui/lab';
-import { Collapse, IconButton } from '@material-ui/core';
+import { Collapse, IconButton, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { useHandleOpen } from '../';
 
-export function Summary({ text, severity, className, ...props }) {
+export function Summary({
+	text,
+	detail,
+	seeMoreText = 'see more',
+	severity,
+	className,
+	...props
+}) {
 	const { isOpen, handleClose } = useHandleOpen(Boolean(text));
+	const {
+		isOpen: isSeeMoreOpen,
+		handleClose: handleSeeMoreCLose,
+		handleOpen: handleSeeMoreOpen,
+	} = useHandleOpen(false);
 
 	return (
 		<Collapse in={isOpen} {...props}>
@@ -19,8 +31,28 @@ export function Summary({ text, severity, className, ...props }) {
 					</IconButton>
 				}
 			>
-				{/* TODO: manage multi errors */}
-				{text}
+				<Typography variant='h6'>{text}</Typography>
+				{detail && (
+					<>
+						<Typography
+							onClick={isSeeMoreOpen ? handleSeeMoreCLose : handleSeeMoreOpen}
+							style={{
+								fontWeight: 400,
+								marginTop: '0.5rem',
+								marginBottom: '0.5rem',
+								color: '#f44336c2',
+								cursor: 'pointer',
+							}}
+						>
+							{`[${seeMoreText}]`}
+						</Typography>
+						<Collapse in={isSeeMoreOpen}>
+							<Typography style={{ marginLeft: '2rem' }} variant='subtitle1'>
+								{detail}
+							</Typography>
+						</Collapse>
+					</>
+				)}
 			</Alert>
 		</Collapse>
 	);
@@ -28,6 +60,8 @@ export function Summary({ text, severity, className, ...props }) {
 
 Summary.propTypes = {
 	text: PropTypes.string,
+	detail: PropTypes.string,
 	className: PropTypes.string,
+	seeMoreText: PropTypes.string,
 	severity: PropTypes.oneOf(['error', 'warning', 'info', 'success']).isRequired,
 };
