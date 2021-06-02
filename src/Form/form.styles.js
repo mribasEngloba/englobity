@@ -9,5 +9,6 @@ export const useFormStyles = makeStyles((theme) => ({
 	},
 	summary: {
 		marginBottom: '1rem',
+		alignItems: 'center',
 	},
 }));
