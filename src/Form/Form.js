@@ -23,8 +23,8 @@ export function Form({ children, errors, elementRef, ...props }) {
 		<>
 			<Summary
 				severity='error'
-				text={errors.message}
-				detail={errors.detail}
+				text={errors?.message || ''}
+				detail={errors?.detail || ''}
 				className={classes.summary}
 			/>
 			<ValidatorForm noValidate ref={elementRef} {...props} autoComplete='off'>

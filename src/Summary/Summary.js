@@ -31,7 +31,7 @@ export function Summary({
 					</IconButton>
 				}
 			>
-				<Typography variant='h6'>{text}</Typography>
+				<Typography variant='subtitle1'>{text}</Typography>
 				{detail && (
 					<>
 						<Typography
@@ -47,7 +47,7 @@ export function Summary({
 							{`[${seeMoreText}]`}
 						</Typography>
 						<Collapse in={isSeeMoreOpen}>
-							<Typography style={{ marginLeft: '2rem' }} variant='subtitle1'>
+							<Typography style={{ marginLeft: '2rem' }} variant='subtitle2'>
 								{detail}
 							</Typography>
 						</Collapse>
