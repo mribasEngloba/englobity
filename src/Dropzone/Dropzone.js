@@ -11,6 +11,7 @@ import { useDropzoneStyles } from './dropzone.styles';
 export function Dropzone({
 	onDrop,
 	file,
+	accept,
 	disabled,
 	onDeleteFile,
 	labelDrop,
@@ -49,6 +50,7 @@ export function Dropzone({
 	);
 
 	const { getRootProps, getInputProps } = useDropzone({
+		accept,
 		disabled,
 		onDrop: handleOnDrop,
 		onDragEnter: handleDragEnter,
@@ -96,6 +98,7 @@ Dropzone.propTypes = {
 	onDeleteFile: PropTypes.func,
 	file: PropTypes.string,
 	disabled: PropTypes.bool,
+	accept: PropTypes.string,
 	multiple: PropTypes.bool,
 	labelDrop: PropTypes.string,
 	isLoading: PropTypes.bool,

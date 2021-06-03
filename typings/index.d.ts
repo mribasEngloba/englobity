@@ -105,6 +105,7 @@ export interface DialogModalEnglobityProps {
 export interface DropzoneEnglobityProps extends LoadingProps {
 	onDrop: Function;
 	file: string;
+	accept: string;
 	onDeleteFile: Function;
 	labelDrop: string;
 	skeletonHeight?: 48;
