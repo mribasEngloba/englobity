@@ -6,7 +6,7 @@ import Add from '@material-ui/icons/Add';
 import { useTheme } from '@material-ui/core/styles';
 import { Grid, Tab, Tabs, AppBar, Button } from '@material-ui/core';
 import { TabPanel } from './TabPanel';
-import { useTabsStyles } from './dynamicTabs.styles';
+import { useTabsStyles } from './tabs.styles';
 
 function tabProps(index) {
 	return {
@@ -85,6 +85,7 @@ export function CustomTabs({
 				<Grid container alignItems='center' justify='center'>
 					<Grid item xs={12} className={classes.root}>
 						<Tabs
+							className={classes.tabs}
 							value={tabPosition}
 							onChange={handleChange}
 							indicatorColor='primary'
@@ -98,7 +99,7 @@ export function CustomTabs({
 										key={index}
 										className={`${classes.tab} ${
 											tab.withDot ? classes.withDot : ''
-										}`}
+										} ${isDynamic ? '' : classes.flexTab}`}
 										icon={renderIconTab(tab, index)}
 										label={tab.name}
 										{...tabProps({ index })}
