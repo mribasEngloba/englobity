@@ -24,25 +24,13 @@ export const useTabsStyles = makeStyles((theme) => ({
 	},
 	deleteIconWrapper: {
 		flexDirection: 'row-reverse',
+		'& .MuiSvgIcon-root': {
+			marginLeft: '0.5rem !important',
+			marginRight: '0 !important',
+		},
 	},
 	dynamicTab: {
-		'&.Mui-selected': {
-			'&:after': {
-				width: '2px',
-				backgroundColor: theme.palette.primary.main,
-			},
-			'&:before': {
-				width: '2px',
-				backgroundColor: theme.palette.primary.main,
-			},
-		},
-
 		'&:after': {
-			...slydeStyle,
-			right: '0',
-			backgroundColor: 'rgba(0, 0, 0, 0.54)',
-		},
-		'&:before': {
 			...slydeStyle,
 			left: '0',
 			backgroundColor: 'rgba(0, 0, 0, 0.54)',
@@ -52,8 +40,8 @@ export const useTabsStyles = makeStyles((theme) => ({
 		paddingRight: '2rem',
 		'&:before': {
 			top: '30px',
-			right: '11px',
 			width: '7px',
+			left: '88%',
 			height: '8px',
 			borderRadius: '100%',
 			content: '""',
