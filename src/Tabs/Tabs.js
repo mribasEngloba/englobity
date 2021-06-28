@@ -97,9 +97,17 @@ export function CustomTabs({
 								return (
 									<Tab
 										key={index}
+										classes={
+											isDynamic
+												? {
+														wrapper: classes.deleteIconWrapper,
+														labelContainer: classes.deleteIconContainer,
+												  }
+												: ''
+										}
 										className={`${classes.tab} ${
 											tab.withDot ? classes.withDot : ''
-										} ${isDynamic ? '' : classes.flexTab}`}
+										} ${isDynamic ? classes.dynamicTab : classes.flexTab}`}
 										icon={renderIconTab(tab, index)}
 										label={tab.name}
 										{...tabProps({ index })}
