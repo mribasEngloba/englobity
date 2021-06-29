@@ -27,14 +27,6 @@ export function CustomDateTimePicker({
 	}
 
 	const params = {
-		...props,
-		clearable: true,
-		showTodayButton: true,
-		ampm: false,
-		fullWidth: true,
-		value: value || null,
-		inputVariant: 'outlined',
-		onChange: handleDateChange,
 		TextFieldComponent: function textField(params) {
 			return (
 				<Input
@@ -45,6 +37,14 @@ export function CustomDateTimePicker({
 				/>
 			);
 		},
+		clearable: true,
+		showTodayButton: true,
+		ampm: false,
+		fullWidth: true,
+		value: value || null,
+		inputVariant: 'outlined',
+		onChange: handleDateChange,
+		...props,
 	};
 
 	return isLoading ? (
