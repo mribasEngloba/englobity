@@ -17,6 +17,14 @@ export function Form({ children, errors, elementRef, ...props }) {
 			validations.daysFormat.name,
 			validations.daysFormat.cb
 		);
+		ValidatorForm.addValidationRule(
+			validations.nifFormat.name,
+			validations.nifFormat.cb
+		);
+		ValidatorForm.addValidationRule(
+			validations.nieFormat.name,
+			validations.nieFormat.cb
+		);
 	}, []);
 
 	return (
