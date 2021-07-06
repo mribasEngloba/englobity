@@ -2,8 +2,8 @@ const NIF_LETTERS = 'TRWAGMYFPDXBNJZSQVHLCKE';
 const NIF_MAX_LENGTH = 9;
 const NIF_MIN_LENGTH = 8;
 const NIE_LETTERS = 'XYZ';
-const NIF_REGEX = /^(\d{8})([A-Z])$/;
-const NIE_REGEX = /^[XYZ]\d{7,8}[A-Z]$/;
+const NIF_REGEX = /^(\d{8})([A-Z])$/i;
+const NIE_REGEX = /^[XYZ]\d{7,8}[A-Z]$/i;
 
 function validateNIF(documentId) {
 	let isValid = false;
