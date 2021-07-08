@@ -3,6 +3,7 @@ const NIF_MAX_LENGTH = 9;
 const NIF_MIN_LENGTH = 8;
 const NIE_LETTERS = 'XYZ';
 const NIF_REGEX = /^(\d{8})([A-Z])$/i;
+const CIF_REGEX = /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/;
 const NIE_REGEX = /^[XYZ]\d{7,8}[A-Z]$/i;
 
 function validateNIF(documentId) {
@@ -21,6 +22,48 @@ function validateNIF(documentId) {
 			parseInt(documentId.substring(0, documentId.length - 1)) % 23;
 
 		isValid = NIFLetter === NIF_LETTERS[NIFNumber];
+	}
+
+	return isValid;
+}
+
+function validateCIF(documentId) {
+	const letrasControl = 'JABCDEFGHI';
+	const CIF_length = 9;
+	let isValid = false;
+
+	if (!documentId) {
+		return isValid;
+	}
+	if (documentId.length === CIF_length) {
+		let match = documentId.match(CIF_REGEX);
+		if (match !== undefined && match !== null && match.length >= 4) {
+			let numero = match[2],
+				control = match[3];
+
+			let digitosCIF = parseInt(numero);
+			if (!isNaN(digitosCIF)) {
+				let suma = 0;
+				let num = 0;
+				for (var i = 0; i < numero.length; i++) {
+					num = parseInt(numero[i]);
+					if (i % 2 === 0) {
+						num *= 2;
+						suma += num < 10 ? num : num - 9;
+					} else suma += num;
+				}
+
+				suma = (10 - (suma % 10)) % 10;
+
+				let digitoControl = parseInt(control);
+				let controlEsperado = parseInt(control);
+
+				if (!isNaN(digitoControl)) controlEsperado = suma.toString();
+				else controlEsperado = letrasControl[suma];
+
+				isValid = control === controlEsperado;
+			}
+		}
 	}
 
 	return isValid;
@@ -53,6 +96,10 @@ export const validations = {
 	nifFormat: {
 		name: 'nifFormat',
 		cb: (value) => value.match(NIF_REGEX) && validateNIF(value),
+	},
+	cifFormat: {
+		name: 'cifFormat',
+		cb: (value) => value.match(CIF_REGEX) && validateCIF(value),
 	},
 	nieFormat: {
 		name: 'nieFormat',

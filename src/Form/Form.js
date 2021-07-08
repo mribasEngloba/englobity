@@ -22,6 +22,10 @@ export function Form({ children, errors, elementRef, ...props }) {
 			validations.nifFormat.cb
 		);
 		ValidatorForm.addValidationRule(
+			validations.cifFormat.name,
+			validations.cifFormat.cb
+		);
+		ValidatorForm.addValidationRule(
 			validations.nieFormat.name,
 			validations.nieFormat.cb
 		);
