@@ -11,10 +11,11 @@ export function CustomAvatar({
 	userName,
 	letters,
 	userEmail,
-	userThumbnai,
+	userThumbnail,
 	logOutText,
 	myAccountText,
 	myAccountLink,
+	onClickAvatarPicture,
 	...props
 }) {
 	const classes = useAvatarStyles();
@@ -40,7 +41,7 @@ export function CustomAvatar({
 			<MenuItem id={id} onClick={handleProfileMenuOpen}>
 				<Avatar
 					alt={userName}
-					src={userThumbnai || ''}
+					src={userThumbnail || ''}
 					className={classes.avatarIcon}
 				>
 					{letters}
@@ -71,8 +72,9 @@ export function CustomAvatar({
 						<CardContent>
 							<Avatar
 								alt={userName}
-								src={userThumbnai || ''}
+								src={userThumbnail || ''}
 								className={`${classes.avatarIcon} ${classes.avatarIconBig}`}
+								onClick={onClickAvatarPicture && onClickAvatarPicture}
 							>
 								{letters}
 							</Avatar>
@@ -106,5 +108,6 @@ CustomAvatar.propTypes = {
 	logOutText: PropTypes.string,
 	myAccountText: PropTypes.string,
 	myAccountLink: PropTypes.string,
-	userThumbnai: PropTypes.string,
+	userThumbnail: PropTypes.string,
+	onClickAvatarPicture: PropTypes.func,
 };
