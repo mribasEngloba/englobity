@@ -43,7 +43,12 @@ export function DialogModal({
 							id={button.id || `dialog_button_${i}`}
 							key={`dialog_button_${i}`}
 							{...button}
-						/>
+						>
+							<div className={classes.wrapperButton}>
+								{button.children}
+								<p className={classes.textButton}>{button.text}</p>
+							</div>
+						</Button>
 					))}
 				</DialogActions>
 			)}
