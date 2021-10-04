@@ -88,18 +88,9 @@ export function AsyncInputAutocomplete({
 				setStartLoading(false);
 			}
 		} catch (error) {
-			// TODO
+			setStartLoading(false);
 		}
 	}
-
-	// TODO: move
-
-	// const loadingValue = multiple ? internalValue[0] : internalValue;
-	// const isLoading =
-	// 	loadingValue &&
-	// 	Object.keys(loadingValue).some(function (k) {
-	// 		return isSkeletonLoading(loadingValue[k]);
-	// 	});
 
 	return (
 		<>
