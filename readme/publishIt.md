@@ -24,3 +24,8 @@ where X is the number of version.
 and finnaly
 
 > npm publish --access public
+
+
+> WARNING: if is the first time you run the publish command, first register engloba-tech in your terminal
+
+> npm adduser engloba-tech   
