@@ -75,7 +75,7 @@ export function AsyncInputAutocomplete({
 	function onChangeValueSingle(event, newValue) {
 		setInternalValue(newValue);
 
-		const newInputValue = props.getOptionLabel(newValue);
+		const newInputValue = props.getOptionLabel(newValue || {});
 		setInput(newInputValue || '');
 
 		onChange(event, newValue);
