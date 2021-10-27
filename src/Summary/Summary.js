@@ -47,9 +47,23 @@ export function Summary({
 							{`[${seeMoreText}]`}
 						</Typography>
 						<Collapse in={isSeeMoreOpen}>
-							<Typography style={{ marginLeft: '2rem' }} variant='subtitle2'>
-								{detail}
-							</Typography>
+							{Array.isArry(detail) ? (
+								detail.map((text, i) => {
+									return (
+										<Typography
+											key={i}
+											style={{ marginLeft: '2rem' }}
+											variant='subtitle2'
+										>
+											{text}
+										</Typography>
+									);
+								})
+							) : (
+								<Typography style={{ marginLeft: '2rem' }} variant='subtitle2'>
+									{detail}
+								</Typography>
+							)}
 						</Collapse>
 					</>
 				)}
