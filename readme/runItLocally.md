@@ -1,17 +1,11 @@
 # How to run it locally
 
-to try it localy, we must install this package in other project.
+First you must install dependencies by:
 
-first of all we need to clone the repository in our machine, then, run this comand inside `englobity` folder
+> npm i
 
-> npm install
+and then execute the project located at `src/App/index.js`
 
-once all dependencies installed, go to the project you want to try this package and run this commands.
+> npm start
 
-> npm install <local-englobity-path<l>>/englobity
-
-and then link react
-
-> npm link <local-englobity-path<l>>/node_modules/react
-
-after those commands, you can run the selected project, and try your local englobity
+There you could test the englobity components

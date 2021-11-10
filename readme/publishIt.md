@@ -19,13 +19,14 @@ Then, we will name next package version with this command
 
 > npm version x.x.x
 
-where X is the number of version.
+where X is the number of version. Then execute:
+
+> npm install
 
 and finnaly
 
 > npm publish --access public
 
+**WARNING**: if is the first time that you are running the publish command, first register engloba-tech in your terminal
 
-> WARNING: if is the first time you run the publish command, first register engloba-tech in your terminal
-
-> npm adduser engloba-tech   
+> npm adduser engloba-tech
