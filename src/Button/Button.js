@@ -17,7 +17,7 @@ export function CustomButton({
 
 	function renderButton() {
 		return (
-			<div className={`${rootClassName} ${disabled ? 'Mui-disabled' : ''}`}>
+			<div className={`${rootClassName} ${disabled ? 'Mui-disabled' : ''}`} >
 				<Button
 					disabled={disabled}
 					type={isSubmit ? 'submit' : 'button'}
