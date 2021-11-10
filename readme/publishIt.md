@@ -1,6 +1,6 @@
 # How to publish new version
 
-This package is associated to NPM englba-tech organization, so, you must have permisions first, after publish new package version.
+This package is associated to NPM englba-tech organization, so , you must have permisions first, after publish new package version.
 
 Lets login as a user organization
 
@@ -30,5 +30,3 @@ and finnaly
 **WARNING**: if is the first time that you are running the publish command, first register engloba-tech in your terminal
 
 > npm adduser engloba-tech
-
-
