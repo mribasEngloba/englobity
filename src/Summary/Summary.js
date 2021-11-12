@@ -47,7 +47,7 @@ export function Summary({
 							{`[${seeMoreText}]`}
 						</Typography>
 						<Collapse in={isSeeMoreOpen}>
-							{Array.isArry(detail) ? (
+							{Array.isArray(detail) ? (
 								detail.map((text, i) => {
 									return (
 										<Typography
