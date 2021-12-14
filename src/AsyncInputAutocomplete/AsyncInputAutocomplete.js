@@ -86,7 +86,13 @@ export function AsyncInputAutocomplete({
 			const response = await requestAction(queryString);
 
 			if (response) {
-				setOptions(Object.keys(response).map((index) => response[index]).sort((a, b) => a.name.localeCompare(b.name)));
+				if (response[0].name){
+					setOptions(Object.keys(response).map((index) => response[index]).sort((a, b) => a.name.localeCompare(b.name)));
+				} else if (response[0].reference) {
+					setOptions(Object.keys(response).map((index) => response[index]).sort((a, b) => a.reference.localeCompare(b.reference)));
+				} else {
+					setOptions(Object.keys(response).map((index) => response[index]))
+				}			
 				setStartLoading(false);
 			}
 		} catch (error) {
