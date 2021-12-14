@@ -91,7 +91,7 @@ export function AsyncInputAutocomplete({
 				} else if (response[0].reference) {
 					setOptions(Object.keys(response).map((index) => response[index]).sort((a, b) => a.reference.localeCompare(b.reference)));
 				} else {
-					setOptions(Object.keys(response).map((index) => response[index]))
+					setOptions(Object.keys(response).map((index) => response[index]));
 				}			
 				setStartLoading(false);
 			}
