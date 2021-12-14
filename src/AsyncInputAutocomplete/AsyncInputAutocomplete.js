@@ -86,7 +86,7 @@ export function AsyncInputAutocomplete({
 			const response = await requestAction(queryString);
 
 			if (response) {
-				setOptions(Object.keys(response).map((index) => response[index]));
+				setOptions(Object.keys(response).map((index) => response[index]).sort((a, b) => a.name.localeCompare(b.name)));
 				setStartLoading(false);
 			}
 		} catch (error) {
