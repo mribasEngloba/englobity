@@ -1,6 +1,6 @@
 # How to publish new version
 
-This package is associated to NPM englba-tech organization, so, u must have permisions first, after publish new package version.
+This package is associated to NPM englba-tech organization, so , you must have permisions first, after publish new package version.
 
 Lets login as a user organization
 

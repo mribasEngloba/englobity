@@ -13,7 +13,7 @@ export function App() {
 			>
 				<Button>primary</Button>
 				<Button type='secondary'>secondary</Button>
-				<Button disabled> disabled</Button>
+				<Button disabled>look disabled</Button>
 				<Button tooltip={{ title: 'with tooltip' }}>with tooltip</Button>
 				<Button
 					tooltip={{

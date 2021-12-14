@@ -7,10 +7,10 @@ export function createEnglobaMaterialTheme(
 	color,
 	globals,
 	fontFamily,
-	optiosn
+	options
 ) {
 	return createMuiTheme({
-		...optiosn,
+		...options,
 		font,
 		media,
 		time,

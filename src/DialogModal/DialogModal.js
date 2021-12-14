@@ -34,22 +34,25 @@ export function DialogModal({
 			</DialogContent>
 			{buttons && (
 				<DialogActions className={classes.actions}>
-					{buttons.map((button, i) => (
-						<Button
-							tooltip={{
-								title: button.text,
-								placement: 'top',
-							}}
-							id={button.id || `dialog_button_${i}`}
-							key={`dialog_button_${i}`}
-							{...button}
-						>
-							<div className={classes.wrapperButton}>
-								{button.children}
-								<p className={classes.textButton}>{button.text}</p>
-							</div>
-						</Button>
-					))}
+					{buttons.map(
+						(button, i) =>
+							button && (
+								<Button
+									tooltip={{
+										title: button.text,
+										placement: 'top',
+									}}
+									id={button.id || `dialog_button_${i}`}
+									key={`dialog_button_${i}`}
+									{...button}
+								>
+									<div className={classes.wrapperButton}>
+										{button.children}
+										<p className={classes.textButton}>{button.text}</p>
+									</div>
+								</Button>
+							)
+					)}
 				</DialogActions>
 			)}
 		</Dialog>
