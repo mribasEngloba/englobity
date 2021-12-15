@@ -85,11 +85,14 @@ export function AsyncInputAutocomplete({
 		try {
 			const response = await requestAction(queryString);
 
+			// WIP - Workarround, we should refactor the dropdowns to always get data formatted as Id, Name
 			if (response) {
 				if (response[0].name){
 					setOptions(Object.keys(response).map((index) => response[index]).sort((a, b) => a.name.localeCompare(b.name)));
 				} else if (response[0].reference) {
 					setOptions(Object.keys(response).map((index) => response[index]).sort((a, b) => a.reference.localeCompare(b.reference)));
+				} else if (response[0].alias) {
+					setOptions(Object.keys(response).map((index) => response[index]).sort((a, b) => a.alias.localeCompare(b.alias)));
 				} else {
 					setOptions(Object.keys(response).map((index) => response[index]));
 				}			
