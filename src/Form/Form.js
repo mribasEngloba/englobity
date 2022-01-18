@@ -29,6 +29,7 @@ export function Form({ children, errors, elementRef, ...props }) {
 			validations.nieFormat.name,
 			validations.nieFormat.cb
 		);
+		ValidatorForm.addValidationRule('isPasswordMatch', (value, referenceValue) => value === referenceValue);
 	}, []);
 
 	return (
