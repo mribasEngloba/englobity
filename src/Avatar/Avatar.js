@@ -61,13 +61,6 @@ export function CustomAvatar({
 				onClose={handleMenuClose}
 			>
 				<Card elevation={0} className={classes.root}>
-					<div className={`${classes.grow} ${classes.signOutButton}`}>
-						<MenuItem onClick={handleLogOut} className={classes.text}>
-							<Typography variant='subtitle1' color='textSecondary'>
-								{logOutText || 'logout'}
-							</Typography>
-						</MenuItem>
-					</div>
 					<div className={classes.details}>
 						<CardContent>
 							<Avatar
@@ -92,6 +85,13 @@ export function CustomAvatar({
 								</Link>
 							)}
 						</CardContent>
+					</div>
+					<div className={`${classes.grow} ${classes.signOutButton}`}>
+						<MenuItem onClick={handleLogOut} className={classes.text}>
+							<Typography variant='subtitle1' color='textSecondary'>
+								{logOutText || 'logout'}
+							</Typography>
+						</MenuItem>
 					</div>
 				</Card>
 			</Menu>
