@@ -1,29 +1,46 @@
 import React from 'react';
-import { Button } from '../';
+import { Button, ButtonGroup } from '../';
+import AddIcon from '@material-ui/icons/Add';
 
 export function App() {
-	return (
-		<>
-			<div
-				style={{
-					display: 'flex',
-					justifyContent: 'space-around',
-					margin: '2rem',
-				}}
-			>
-				<Button>primary</Button>
-				<Button type='secondary'>secondary</Button>
-				<Button disabled>look disabled</Button>
-				<Button tooltip={{ title: 'with tooltip' }}>with tooltip</Button>
-				<Button
-					tooltip={{
-						title: 'with tooltip diferent placement',
-						placement: 'left',
-					}}
-				>
-					with tooltip diferent placement
-				</Button>
-			</div>
-		</>
-	);
+
+  return (
+    <>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          margin: '2rem',
+        }}
+      >
+        <Button>primary</Button>
+        <Button type="secondary">secondary</Button>
+        <Button disabled>look disabled</Button>
+        <Button tooltip={{ title: 'with tooltip' }}>with tooltip</Button>
+        <Button
+          tooltip={{
+            title: 'with tooltip diferent placement',
+            placement: 'left',
+          }}
+        >
+          with tooltip diferent placement
+        </Button>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          margin: '2rem',
+        }}
+      >
+        <ButtonGroup
+          defaultOption={1}
+          options={[
+            { name: 'Action 1', icon: <AddIcon />, action: () => null },
+            { name: 'Action 2', action: () => null },
+          ]}
+        ></ButtonGroup>
+      </div>
+    </>
+  );
 }

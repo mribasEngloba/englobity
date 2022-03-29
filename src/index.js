@@ -1,5 +1,6 @@
 export * from './AsyncInputAutocomplete';
 export * from './Button';
+export * from './ButtonGroup';
 export * from './ChipInput';
 export * from './DateTimePicker';
 export * from './DialogModal';
