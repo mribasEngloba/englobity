@@ -107,7 +107,8 @@ export function CustomTabs({
 										}
 										className={`${classes.tab} ${
 											tab.withDot ? classes.withDot : ''
-										} ${isDynamic ? classes.dynamicTab : classes.flexTab}`}
+										} ${isDynamic ? classes.dynamicTab : classes.flexTab}
+										${tab.className}`}
 										icon={renderIconTab(tab, index)}
 										label={tab.name}
 										{...tabProps({ index })}
