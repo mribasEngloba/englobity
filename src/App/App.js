@@ -1,8 +1,11 @@
-import React from 'react';
-import { Button, ButtonGroup } from '../';
+import React, {useState } from 'react';
+import { Button, ButtonGroup, DialogModal } from '../';
+import CloseIcon from '@material-ui/icons/Close';
 import AddIcon from '@material-ui/icons/Add';
 
 export function App() {
+
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <>
@@ -40,6 +43,33 @@ export function App() {
             { name: 'Action 2', action: () => null },
           ]}
         ></ButtonGroup>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          margin: '2rem',
+        }}
+      >
+        <Button onClick={() => setOpenModal(true)}>This opens a dialog</Button>
+        
+        <DialogModal
+          fullWidth
+          title={'Modal'}
+          description={''}
+          isOpen={openModal}
+          onClose={() => setOpenModal(false)}
+          buttons={[
+            {
+              children: <CloseIcon />,
+              text: 'Close',
+              type: 'secondary',
+              onClick: () => setOpenModal(false)
+            }
+          ]}
+        >
+          <p>And this the content</p>
+        </DialogModal>
       </div>
     </>
   );
