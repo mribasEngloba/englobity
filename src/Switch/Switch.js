@@ -13,7 +13,7 @@ export function CustomSwitch({
 	return (
 		<>
 			{isLoading ? (
-				<Skeleton height={skeletonHeight} width={'90%'} />
+				<Skeleton height={skeletonHeight} width={'100%'} />
 			) : (
 				<FormControlLabel
 					className={className}

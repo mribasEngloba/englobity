@@ -30,6 +30,10 @@ export function Form({ children, errors, elementRef, ...props }) {
 			validations.nieFormat.cb
 		);
 		ValidatorForm.addValidationRule('isPasswordMatch', (value, referenceValue) => value === referenceValue);
+		ValidatorForm.addValidationRule(
+			validations.cadastralReferenceFormat.name,
+			validations.cadastralReferenceFormat.cb
+		);
 	}, []);
 
 	return (

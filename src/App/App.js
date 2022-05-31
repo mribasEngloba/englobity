@@ -65,6 +65,12 @@ export function App() {
               text: 'Close',
               type: 'secondary',
               onClick: () => setOpenModal(false)
+            },
+            {
+              children: <CloseIcon />,
+              text: 'Close',
+              type: 'secondary',
+              onClick: () => setOpenModal(false)
             }
           ]}
         >
