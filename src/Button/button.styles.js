@@ -22,7 +22,7 @@ export const usButtonStyles = makeStyles((theme) => ({
 			background: theme.palette.basic.brighter,
 			color: theme.palette.secondary.light,
 		},
-		textTransform: 'capitalize',
+		textTransform: 'none',
 	},
 	secondary: {
 		...defauldButton(theme.font),
@@ -38,6 +38,6 @@ export const usButtonStyles = makeStyles((theme) => ({
 			border: `1.25px solid ${theme.palette.basic.brighter}`,
 			color: theme.palette.basic.brighter,
 		},
-		textTransform: 'capitalize',
+		textTransform: 'none',
 	},
 }));

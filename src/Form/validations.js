@@ -91,8 +91,9 @@ function validateNIE(documentId) {
 }
 
 function validateCadastralReference(value) {
-  if (value && value.length === 14) return true;
   
+  if (!value) return true;
+  if (value && value.length === 14) return true;
   if (value && value.length === 20) {
     value = value.toUpperCase();
 
