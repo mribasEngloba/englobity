@@ -2,6 +2,7 @@ import React, {useState } from 'react';
 import { Button, ButtonGroup, DialogModal } from '../';
 import CloseIcon from '@material-ui/icons/Close';
 import AddIcon from '@material-ui/icons/Add';
+import { Select } from '../';
 
 export function App() {
 
@@ -76,6 +77,24 @@ export function App() {
         >
           <p>And this the content</p>
         </DialogModal>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          margin: '2rem',
+        }}
+      >
+        <Select
+            value={1}
+            displayEmpty
+            required
+            validators={['required']}
+            errorMessages={['required']}
+            onChange={({ target }) => null}
+            elements={[{ value: 1, name: '1' },{ value: 2, name: '2' }, { value: 3, name: '3' }]}
+          />
+        
       </div>
     </>
   );

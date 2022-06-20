@@ -18,6 +18,7 @@ export function CustomSelect({
 	elements,
 	menuItemRender,
 	isLoading,
+	displayEmpty,
 	skeletonHeight = 48,
 	...props
 }) {
@@ -34,12 +35,13 @@ export function CustomSelect({
 				<Skeleton height={skeletonHeight} />
 			) : (
 				<>
-					<InputLabel id={`select-outlined-${id}`}>{title}</InputLabel>
+					<InputLabel shrink={displayEmpty} id={`select-outlined-${id}`}>{title}</InputLabel>
 					<Select
 						className={classes.customSelect}
 						labelId={`select-outlined-${id}`}
 						id={`${id}-select-outlined`}
 						value={value}
+						displayEmpty={displayEmpty}
 						{...props}
 						label={title}
 					>
