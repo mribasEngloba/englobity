@@ -34,6 +34,10 @@ export function Form({ children, errors, elementRef, ...props }) {
 			validations.cadastralReferenceFormat.name,
 			validations.cadastralReferenceFormat.cb
 		);
+		ValidatorForm.addValidationRule(
+			validations.phoneNumber.name,
+			validations.phoneNumber.cb
+		);
 	}, []);
 
 	return (

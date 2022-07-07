@@ -5,6 +5,7 @@ const NIE_LETTERS = 'XYZ';
 const NIF_REGEX = /^(\d{8})([A-Z])$/i;
 const CIF_REGEX = /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/i;
 const NIE_REGEX = /^[XYZ]\d{7,8}[A-Z]$/i;
+const PHONE_NUMBER = /^(\+[0-9]{1,3})?(?:[0-9] ?){6,14}[0-9]$/;
 
 function validateNIF(documentId) {
   let isValid = false;
@@ -134,6 +135,12 @@ function getControlDigit(ref) {
   return Restos[nResultado];
 }
 
+function validatePhone(phone) {
+  const phoneNumber = phone.replaceAll(/\s/g, '');
+
+  return (PHONE_NUMBER.test(phoneNumber));
+};
+
 export const validations = {
   hourFormat: {
     name: 'hourFormat',
@@ -159,5 +166,9 @@ export const validations = {
     name: 'cadastralReferenceFormat',
     cb: (value) => validateCadastralReference(value),
   },
+  phoneNumber: {
+    name: 'phoneNumberFormat',
+    cb: (value) => validatePhone(value),
+  }
   // more validations here
 };

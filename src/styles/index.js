@@ -1,7 +1,7 @@
 import { font } from './font.styles.js';
 import { media, time } from './utils.styles.js';
 import { components } from './components.styles.js';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 
 export function createEnglobaMaterialTheme(
 	color,
@@ -9,7 +9,7 @@ export function createEnglobaMaterialTheme(
 	fontFamily,
 	options
 ) {
-	return createMuiTheme({
+	return createTheme({
 		...options,
 		font,
 		media,
