@@ -8,7 +8,7 @@ export const useAvatarStyles = makeStyles((theme) => ({
 	avatarIconBig: {
 		width: '5rem',
 		height: '5rem',
-		fontSize: theme.font.size.xxxl,
+		fontSize: theme.font.size.xxxl
 	},
 	grow: {
 		flexGrow: 1,

@@ -28,5 +28,19 @@ export const color = {
     red: '#EB3030',
     navyBlue: '#232977',
     blue: '#4d5df1'
+  },
+  buttons: {
+    add: {
+      main: '#34bf49',
+      light: '#d0e6e3'
+    },
+    delete: {
+      main: '#ff4c4c',
+      light: '#eed5e3'
+    },
+    disabled: {
+      background: '#d8d9e4',
+      text: '#838383'
+    }
   }
 };

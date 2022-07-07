@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from '@material-ui/core';
 import { useDialogModalStyles } from './dialogModal.styles';
-import { Button } from '../Button';
+import { Button } from '../Buttons';
 import CloseIcon from '@material-ui/icons/Close';
 
 export function DialogModal({

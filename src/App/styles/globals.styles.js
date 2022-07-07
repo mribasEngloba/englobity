@@ -5,7 +5,10 @@ export const globals = {
     fontSize: '16px' // 1rem = 16px,
   },
   body: {
-    backgroundColor: color.secondary.main
+    backgroundColor: color.secondary.main,
+    '& hr':{
+      opacity: 0.2
+    }
   },
   '.MuiInputLabel-outlined': {
     backgroundColor: 'white',

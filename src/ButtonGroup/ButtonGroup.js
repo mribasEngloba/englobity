@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { ButtonGroup } from '@material-ui/core';
 import { usButtonGroupStyles } from './buttonGroup.styles';
-import { Button } from '../Button';
+import { Button } from '../Buttons';
 
 export function CustomButtonGroup({
   options,

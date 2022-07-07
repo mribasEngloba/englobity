@@ -1,11 +1,22 @@
-import React, {useState } from 'react';
-import { Button, ButtonGroup, DialogModal } from '../';
+import React, { useState } from 'react';
+import {
+  Button,
+  ButtonAdd,
+  ButtonDelete,
+  ButtonMulti,
+  ButtonGroup,
+  DialogModal,
+  NotificationsButton,
+  Avatar,
+} from '../';
 import CloseIcon from '@material-ui/icons/Close';
 import AddIcon from '@material-ui/icons/Add';
 import { Select } from '../';
+import { useAppStyles } from './app.styles';
+import clsx from 'clsx';
 
 export function App() {
-
+  const classes = useAppStyles();
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -29,7 +40,138 @@ export function App() {
         >
           with tooltip diferent placement
         </Button>
+        <ButtonMulti
+          text='Multi'
+          actions={[
+            {
+              text: 'Action 1',
+              action: () => alert(1),
+            },
+            {
+              text: 'Action 2',
+              action: () => alert(2),
+            },
+          ]}
+        />
       </div>
+      <hr />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          margin: '2rem',
+        }}
+      >
+        <span>
+          Normal
+          <br />
+          <ButtonAdd />
+        </span>
+        <span>
+          With custom class
+          <br />
+          <ButtonAdd className={classes.blue} />
+        </span>
+        <span>
+          Disabled
+          <br />
+          <ButtonAdd disabled={true} />
+        </span>
+        <span>
+          Custom title and icon
+          <br />
+          <ButtonAdd text="Añadir elemento" icon={<AddIcon />} />
+        </span>
+        <span>
+          With tooltip
+          <br />
+          <ButtonAdd tooltip={{ title: 'Add element!', placement: 'top' }} />
+        </span>
+        <span>
+          With action
+          <br />
+          <ButtonAdd
+            onClick={() => {
+              alert('clicked');
+            }}
+          />
+        </span>
+      </div>
+      <hr />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          margin: '2rem',
+        }}
+      >
+        <span>
+          Normal
+          <br />
+          <ButtonDelete />
+        </span>
+        <span>
+          With custom class
+          <br />
+          <ButtonDelete className={classes.blue} />
+        </span>
+        <span>
+          Disabled
+          <br />
+          <ButtonDelete disabled={true} />
+        </span>
+        <span>
+          Custom title and icon
+          <br />
+          <ButtonDelete text="Añadir elemento" icon={<AddIcon />} />
+        </span>
+        <span>
+          With tooltip
+          <br />
+          <ButtonDelete tooltip={{ title: 'Add element!', placement: 'top' }} />
+        </span>
+        <span>
+          With action
+          <br />
+          <ButtonDelete
+            onClick={() => {
+              alert('clicked');
+            }}
+          />
+        </span>
+      </div>
+      <hr />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          margin: '2rem',
+        }}
+      >
+        <span>
+          With notifications
+          <NotificationsButton
+            counter={1}
+            onClick={() => alert('Notifications button clicked!')}
+          ></NotificationsButton>
+        </span>
+        <span>
+          With no new notifications
+          <NotificationsButton
+            counter={0}
+            onClick={() => alert('Notifications button clicked!')}
+          ></NotificationsButton>
+        </span>
+        <span>
+          With custom class
+          <NotificationsButton
+            counter={2}
+            className={clsx(classes.yellow, classes.greenBell)}
+            onClick={() => alert('Notifications button clicked!')}
+          ></NotificationsButton>
+        </span>
+      </div>
+      <hr />
       <div
         style={{
           display: 'flex',
@@ -45,6 +187,7 @@ export function App() {
           ]}
         ></ButtonGroup>
       </div>
+      <hr />
       <div
         style={{
           display: 'flex',
@@ -53,7 +196,7 @@ export function App() {
         }}
       >
         <Button onClick={() => setOpenModal(true)}>This opens a dialog</Button>
-        
+
         <DialogModal
           fullWidth
           title={'Modal'}
@@ -65,19 +208,20 @@ export function App() {
               children: <CloseIcon />,
               text: 'Close',
               type: 'secondary',
-              onClick: () => setOpenModal(false)
+              onClick: () => setOpenModal(false),
             },
             {
               children: <CloseIcon />,
               text: 'Close',
               type: 'secondary',
-              onClick: () => setOpenModal(false)
-            }
+              onClick: () => setOpenModal(false),
+            },
           ]}
         >
           <p>And this the content</p>
         </DialogModal>
       </div>
+      <hr />
       <div
         style={{
           display: 'flex',
@@ -86,15 +230,65 @@ export function App() {
         }}
       >
         <Select
-            value={1}
-            displayEmpty
-            required
-            validators={['required']}
-            errorMessages={['required']}
-            onChange={({ target }) => null}
-            elements={[{ value: 1, name: '1' },{ value: 2, name: '2' }, { value: 3, name: '3' }]}
+          value={1}
+          displayEmpty
+          required
+          validators={['required']}
+          errorMessages={['required']}
+          onChange={({ target }) => null}
+          elements={[
+            { value: 1, name: '1' },
+            { value: 2, name: '2' },
+            { value: 3, name: '3' },
+          ]}
+        />
+      </div>
+      <hr />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          margin: '2rem',
+        }}
+      >
+        <span>
+          Normal:
+          <Avatar
+            logOutText={'Logout'}
+            onLogOut={() => alert('logout!')}
+            userName={'Pepito'}
+            userThumbnail={null}
+            userEmail={'pepito@gmail.com'}
+            myAccountText={'My account'}
+            onMyAccountClick={() => alert('go to user profile!')}
           />
-        
+        </span>
+        <span>
+          With custom classes:
+          <Avatar
+            className={clsx(classes.border, classes.toolbar)}
+            logOutText={'Logout'}
+            onLogOut={() => alert('logout!')}
+            userName={'Pepito'}
+            userThumbnail={null}
+            userEmail={'pepito@gmail.com'}
+            myAccountText={'My account'}
+            onMyAccountClick={() => alert('go to user profile!')}
+          />
+        </span>
+        <span>
+          On click avatar picture:
+          <Avatar
+            logOutText={'Logout'}
+            onLogOut={() => alert('logout!')}
+            userName={'Pepito'}
+            userThumbnail={null}
+            userEmail={'pepito@gmail.com'}
+            myAccountText={'My account'}
+            onMyAccountClick={() => alert('go to user profile!')}
+            onClickAvatarPicture={() => alert('avatar picture clicked!')}
+          />
+        </span>
       </div>
     </>
   );
