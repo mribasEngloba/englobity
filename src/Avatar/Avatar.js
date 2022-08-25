@@ -32,7 +32,7 @@ export function CustomAvatar({
 
   function handleLogOut() {
     handleMenuClose();
-    onLogOut();
+    onLogOut(); 
   }
 
   return (
