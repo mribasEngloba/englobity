@@ -11,6 +11,9 @@ const slydeStyle = {
 export const useTabsStyles = makeStyles((theme) => ({
 	root: {
 		display: 'flex',
+		'& .MuiTab-wrapper':{
+			textTransform: 'none'
+		}
 	},
 	tabs: { width: '100%' },
 	flexTab: { flex: 1 },

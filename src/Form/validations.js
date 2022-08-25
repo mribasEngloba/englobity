@@ -137,7 +137,8 @@ function getControlDigit(ref) {
 
 function validatePhone(phone) {
   const phoneNumber = phone.replaceAll(/\s/g, '');
-
+  if (!phone || !phone?.length)
+    return true;
   return (PHONE_NUMBER.test(phoneNumber));
 };
 

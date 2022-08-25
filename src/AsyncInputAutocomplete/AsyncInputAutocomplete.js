@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Skeleton } from '@material-ui/lab';
-import { useHandleOpen, Input } from '../';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+
+import { Input, useHandleOpen } from '../';
 import { execHelper } from '../helper';
 
 const TIME = 500;
@@ -24,6 +25,7 @@ export function AsyncInputAutocomplete({
 	multiple,
 	onChange,
 	isLoading,
+	onClick,
 	skeletonHeight = 48,
 	...props
 }) {
@@ -120,6 +122,7 @@ export function AsyncInputAutocomplete({
 					onInputChange={onInputChange}
 					inputValue={input || ''}
 					onChange={multiple ? onChange : onChangeValueSingle}
+					onClick={() => (onClick ? onClick() : null)}
 					loading={startLoading}
 					popupIcon={<ArrowDropDownIcon onClick={onClickOpenButton} />}
 					renderInput={(params) => (
@@ -127,6 +130,7 @@ export function AsyncInputAutocomplete({
 							{...params}
 							icon={icon}
 							label={label}
+							onClick={() => (onClick ? onClick() : null)}
 							value={input || ''}
 							required={required}
 							validators={validators}
@@ -153,6 +157,7 @@ export function AsyncInputAutocomplete({
 AsyncInputAutocomplete.propTypes = {
 	requestAction: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
+	onClick: PropTypes.func.isRequired,
 	icon: PropTypes.element,
 	label: PropTypes.string,
 	multiple: PropTypes.bool,

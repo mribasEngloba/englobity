@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
-import {
-  Button,
-  ButtonAdd,
-  ButtonDelete,
-  ButtonMulti,
-  ButtonGroup,
-  DialogModal,
-  NotificationsButton,
-  Avatar,
-} from '../';
-import CloseIcon from '@material-ui/icons/Close';
 import AddIcon from '@material-ui/icons/Add';
+import CloseIcon from '@material-ui/icons/Close';
+import clsx from 'clsx';
+import React, { useState } from 'react';
+
+import { Avatar, Button, ButtonAdd, ButtonDelete, ButtonGroup, ButtonMulti, ButtonSave, DialogModal, NotificationsButton, Tabs } from '../';
 import { Select } from '../';
 import { useAppStyles } from './app.styles';
-import clsx from 'clsx';
 
 export function App() {
   const classes = useAppStyles();
@@ -41,7 +33,7 @@ export function App() {
           with tooltip diferent placement
         </Button>
         <ButtonMulti
-          text='Multi'
+          text="Multi"
           actions={[
             {
               text: 'Action 1',
@@ -91,6 +83,49 @@ export function App() {
           With action
           <br />
           <ButtonAdd
+            onClick={() => {
+              alert('clicked');
+            }}
+          />
+        </span>
+      </div>
+      <hr />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          margin: '2rem',
+        }}
+      >
+        <span>
+          Normal
+          <br />
+          <ButtonSave />
+        </span>
+        <span>
+          With custom class
+          <br />
+          <ButtonSave className={classes.blue} />
+        </span>
+        <span>
+          Disabled
+          <br />
+          <ButtonSave disabled={true} />
+        </span>
+        <span>
+          Custom title and icon
+          <br />
+          <ButtonSave text="Añadir elemento" icon={<AddIcon />} />
+        </span>
+        <span>
+          With tooltip
+          <br />
+          <ButtonSave tooltip={{ title: 'Add element!', placement: 'top' }} />
+        </span>
+        <span>
+          With action
+          <br />
+          <ButtonSave
             onClick={() => {
               alert('clicked');
             }}
@@ -289,6 +324,34 @@ export function App() {
             onClickAvatarPicture={() => alert('avatar picture clicked!')}
           />
         </span>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          margin: '2rem',
+        }}
+      >
+        <Tabs
+          classNameContent={classes.tabsMinHeight}
+          tabs={[
+            {
+              name: 'Tab1',
+              icon: <AddIcon />,
+              children: <div>Tab 1</div>,
+            },
+            {
+              name: 'Tab2',
+              icon: <AddIcon />,
+              children: <div>Tab 2</div>,
+            },
+            {
+              name: 'Tab3',
+              icon: <AddIcon />,
+              children: <div>Tab 3</div>,
+            },
+          ]}
+        />
       </div>
     </>
   );
